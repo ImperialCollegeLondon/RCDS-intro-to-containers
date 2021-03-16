@@ -75,3 +75,17 @@ Please try to install the appropriate software from the list below depending on 
   - [Docker Engine on Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/)
   - [Docker Engine on Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
   - Note that on Linux, you will either need to run Docker commands as root using `sudo` or [create a docker group to run without sudo](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
+
+## Part1: Container and Docker commands page options
+
+### Why container?
+
+**The fundamental problem: software has dependencies that are difficult to manage**
+Consider Python: a widely used programming language for analysis. Many Python users install the language and tools using something such as [Anaconda](https://anaconda.org/) and give little thought to the underlying software dependencies allowing them to use libraries such as [Matplotlib](https://matplotlib.org/) or [Pandas](https://pandas.pydata.org/) on their computer. Indeed, in an ideal world none of us would need to think about fixing software dependencies, but we are far from that world. For example:
+
+  - Python 2.7 and Python 3 programs are generally **incompatible**: Not all packages can be installed in the same Python environment at their most up to date versions due to conflicts in the shared dependencies
+    - Python 2.7 has now been deprecated but there are still many legacy programs out there
+    
+  - Different versions of Python tools may give slightly different outputs and/or results
+  
+All of the above discussion is **just** about ***Python***. Many people use many different tools and pieces of software during their research workflow all of which may have dependency issues. Some software may just depend on the version of the operating system you’re running or be more like Python where the languages change over time, and depend on an enormous set of software libraries written by unrelated software development teams.
