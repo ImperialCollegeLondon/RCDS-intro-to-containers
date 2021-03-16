@@ -56,5 +56,23 @@ Please seek help at the start of the lesson if you have not been able to setup a
 
 Please try to install the appropriate software from the list below depending on the operating system that your laptop is running:
 
-Microsoft Windows, either:
-Try this first, although it won’t work with Windows 10 Home Edition. Install the Docker Desktop (Windows),
+- Microsoft Windows, either:
+  - Try this first, although it won’t work with Windows 10 Home Edition. Install the [Docker Desktop (Windows)](https://hub.docker.com/editions/community/docker-ce-desktop-windows),
+
+
+  or failing that;
+
+  - Install the [Docker Toolbox (Windows)](https://docs.docker.com/toolbox/toolbox_install_windows/).
+  
+- Apple macOS, either:
+  - Try this first, although it will not work with older versions of macOS. Install the [Docker Desktop (Mac)](https://hub.docker.com/editions/community/docker-ce-desktop-mac),
+  or failing that:
+
+  - Install the [Docker Toolbox (Mac)](https://docs.docker.com/toolbox/toolbox_install_mac/).
+  
+- Linux: there are too many varieties of Linux to give precise instructions here, but hopefully you can locate documentation for getting Docker installed on your Linux distribution. It may already be installed. If it is not already installed on your system, see:
+  - [Docker Engine on CentOS](https://docs.docker.com/install/linux/docker-ce/centos/)
+  - [Docker Engine on Debian](https://docs.docker.com/install/linux/docker-ce/debian/)
+  - [Docker Engine on Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/)
+  - [Docker Engine on Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+  - Note that on Linux, you will either need to run Docker commands as root using `sudo` or [create a docker group to run without sudo](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
