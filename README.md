@@ -106,3 +106,40 @@ Although we have highlighted the dependency issue above, there are other, relate
 
 Thankfully there are ways to get underneath (a lot of) this mess: containers to the rescue! Containers provide a way to package up software dependencies and access to resources such as data in a uniform and portable manner that allows them to be shared and reused across many different computer resources.
 
+### What are containers?
+
+The term “container” can be usefully considered with reference to shipping containers. Before shipping containers were developed, packing and unpacking cargo ships was time consuming, and error prone, with high potential for different clients’ goods to become mixed up. 
+
+<img src="/images/ancient_dock1.png">
+
+<img src="/images/ancient_dock2.png">
+
+Since shipping containers were introduced, the shipping has become much better organized.
+
+<img src="/images/modern_dock1.png">
+
+<img src="/images/modern_dock2.png">
+
+Software containers standardise the packaging of a complete software system (the lightweight virtual machine): you can drop a container into a container host, and it should “just work”.
+
+<img src="/images/vm_containers.png">
+
+On this course, we will be using Linux containers - all of the containers we will meet are based on the Linux operating system in one form or another. However, the same Linux containers we create can run on:
+
+- MacOS;
+- Microsoft Windows;
+- Linux; 
+and
+- The Cloud
+We should certainly see people using the same containers on macOS and Windows today.
+
+### Containers file systems
+
+One complication with using a virtual environment such as a container is that the file systems (i.e. the directories that the container sees) can now potentially come from two different locations:
+
+- **Internal file systems**: these provide directories that are part of the container itself and are not visible on the host outside the container. These directories can have the same location as directories on the host but the container will see its internal version of the directories rather than the host versions.
+
+- **Host file systems**: these are directories mapped from the host into the container to allow the container to access data on the host system. Some container systems (e.g. Singularity) map particular directories into the container by default while others (e.g. Docker) do not generally do this (needs to be mapped manually). Note that the location (or path) to the directories in the container is not necessarily the same as that in the host. The command you use to start the container will usually provide a way to map host directories to directories in the container.
+
+This is illustrated in the diagram below:
+<img src="/images/container_file_system.png">
