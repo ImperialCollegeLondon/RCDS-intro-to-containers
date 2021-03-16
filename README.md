@@ -173,7 +173,7 @@ This is illustrated in the diagram below:
 
 To create and run containers from named Docker images you use the docker run command. Open a shell window if you do not already have one open and try the following docker run invocation. Note that it does not matter what your current working directory is.
 
-      `docker run hello-world`
+`docker run hello-world`
       
 Try: 
 
@@ -185,13 +185,13 @@ run the above command again and observe the difference.
 
 Run:
 
-      `docker image ls`
+`docker image ls`
       
 5. Remove docker image(s)
 
 If you need to reclaim disk space, you can remove image files. The images and their corresponding containers can start to take up a lot of disk space if you don’t clean them up occasionally. If you want to remove an image, you will need to find out details such as the image ID or name of the repository. 
 
-      `docker image rm hello-world`
+`docker image rm hello-world`
     
 if you get the following error message (example):
 
