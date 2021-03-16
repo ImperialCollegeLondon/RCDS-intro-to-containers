@@ -37,3 +37,24 @@ This course consists of 3 parts as follows.
 - Interpret common errors and use these to help debug a container
 - Use singularity to scale up containers on HPC 
 
+## Pre-course activities:
+
+Prerequisites: **Docker engine and Docker Hub**
+
+Please try to complete the following setup tasks ahead of the workshop. If you run into problems, please contact the workshop leader at the e-mail address on the home page. We will also provide installation and setup help at the workshop if required, but you will get more out of the training if you can complete them ahead of time.
+
+There are four steps to the setup:
+
+1. Create a Docker Hub account
+
+You should setup a free account on the Docker Hub ahead of the workshop:
+
+- The [Docker Hub](http://hub.docker.com/). We will use the Docker Hub to download pre-built container images, and for you to upload and download container images that you create, as explained in the relevant lesson episodes.
+Please seek help at the start of the lesson if you have not been able to setup a Docker Hub account.
+
+2. Install the Docker software on your system
+
+Please try to install the appropriate software from the list below depending on the operating system that your laptop is running:
+
+Microsoft Windows, either:
+Try this first, although it won’t work with Windows 10 Home Edition. Install the Docker Desktop (Windows),
