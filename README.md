@@ -198,4 +198,72 @@ if you get the following error message (example):
 `Error response from daemon: conflict: unable to remove repository reference "hello-world" (must force) - container a6d14ab49884 is using its referenced image bf756fb1ae65`
 
 
+that is because there are containers created that depend on this image.
 
+Then you need find what containers are depending on the image(s) to remove it from the containers list first.
+
+docker container lsordocker container ls --allthendocker container rm IDor docker container rm container_name
+NOTE: 
+
+If you want to remove all exited containers at once you can use the docker containers prune command.
+
+Be careful with this command. If you have containers you may want to reconnect to, you should not use this command. It will ask you if to confirm you want to remove ALL stopped (exited) containers, see output below. If successful it will print the full CONTAINER IDs back to you.
+
+
+
+Finally, you are able to remove the unwanted docker image(s).
+
+6. Remove all images.
+
+`docker image rm $(docker image ls -q)`
+
+This command assumes you are using a bash (or compatible) shell. If you happen to be using another shell such as csh or tcsh, this command will fail and you should instead wrap the docker image ls -q part of the command in “backticks”, e.g. `docker image ls -q`
+
+### More interaction with Docker
+
+Often, you will need to use containers to run specific commands, analyses or tasks (as we have seen with the “hello-world” example above). Sometimes, however, you would prefer to have a container running and to get interactive access so you can run commands directly within the container yourself, or debug your docker image. 
+
+To do so, you need to add flag(s) to a docker image when you run it.
+
+
+1.  Run docker container in interactive mode
+
+`docker run -t -i ubuntu /bin/bash`
+
+  - `-t` flag: Allocate a psuedo-tty to allow us to access the container interactively
+  - `-i` flag: interactive mode
+
+2. Remove container automatically after exited
+
+docker run --rm -t -i ubuntu /bin/bash
+
+To get out of the container image, we use the exit command.
+
+**NOTE:**
+
+For the above approach to work the image has to run a shell by default (most Linux OS images do this). Some minimal OS images may also need you to add the `--entrypoint "/bin/bash"`  option to docker run (`docker run --rm -t -i --entrypoint "/bin/bash" ubuntu`), or to place "/bin/bash" at the end of the docker run command, depends on use of ENTRYPOINT or CMD in the Dockerfile.
+
+What’s the difference between the –entrypoint option and placing /bin/sh at the end of the command? Some images are pre-configured with an entrypoint - the command to run by default within a container started from the image. If the default command that runs when you start the container is not the command you want to run, you can override it using the `--entrypoint` option. If an image does not have an entrypoint pre-configured, you tell Docker what command to run when starting a container from the image at the end of the `docker run` command.
+
+3. Run docker container in background and allow to interact later
+
+`docker run -t -d ubuntu`
+
+  - `-d`  flag: Detach the container and run in the background
+We can get the image ID and see the image is running in the background with `docker container ls` .
+
+**Now we have** a running container with an open shell sitting waiting for input. The open shell and the fact that we assigned a pseudo-tty to connect to the shell’s input channel prevent the container from exiting straight away as it would have if we ran a command that exited immediately (for example echo Hello World!).
+
+Then, let’s start an interactive shell directly in the container image using the `docker exec`  command with the container image ID or container image name:
+
+`docker exec -i -t <container name> bash`
+
+To get out of the container, use exit command.
+
+Finally, we need to stop the container (it is still running in the background). We use the `docker stop`  command with the container `name`  or `ID`  to do this.
+
+4. Mount local directories to container
+
+A docker container is by default isolated from the host system. If you want to keep some files (e.g., data analysis results), you don't want them disappeared when the container exited. Therefore it is likely that you will want to mount a local directory from the host system in the container that you start in order to make files from the host system available within the running container. For now, as a quick example, modify the `docker run`  command above so that the container will have the current directory that you are in on the host machine mounted at `/data`  in the container:
+
+`docker run --rm -t -i -v ${PWD}:/data ubuntu "/bin/bash"`
