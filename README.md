@@ -320,11 +320,13 @@ echo "This is a print test"
 
 NOTE: shebang line (#!/bin/bash) means running the file using Bash Shell.
 
-Create own docker images - Example 2Create own docker images - Example 2 item optionsCreate own docker images - Example 2
-Enabled:Statistics Tracking
+### Create own docker images - Example 2
+
 Example 2: Compose one Dockerfile with a simple Python code.
 
-Dockerfile contains:
+- Dockerfile contains:
+
+```
 FROM ubuntu
 
 RUN apt update && apt install -y python3 
@@ -332,19 +334,25 @@ RUN apt update && apt install -y python3
 ADD py_test.py ./ 
 
 CMD [“python”, “py_test.py”]
+```
 
-py_test.py  contains:
+- py_test.py  contains:
+
+```
 print("This is a Python test in docker!")
+```
 
 NOTE: Packages need to be installed using RUN.
 
 
 
-Create own docker images - Example 3Create own docker images - Example 3 item optionsCreate own docker images - Example 3
-Enabled:Statistics Tracking
+### Create own docker images - Example 3
+
+
 Example 3: Compose one Dockerfile, and a Python code with a sample pandas dataset.
 
-Dockerfile contains:
+- Dockerfile contains:
+```
 FROM ubuntu
 
 RUN apt update && apt install -y python3 python3-pip && pip3 install pandas
@@ -352,10 +360,10 @@ RUN apt update && apt install -y python3 python3-pip && pip3 install pandas
 ADD py_test.py ./
 
 CMD [“python3”, “py_test.py”]
+```
+- py_test.py  contains:
 
-py_test.py  contains:
-
-
+```
 import pandas as pd
 
 data = { 'Company' : ['VW','Toyota','Renault','KIA','Tesla'], 'Cars Sold (millions)' : [10.8,10.7,10.3,7.4,0.25], 'Best Selling Model' : ['Golf','RAV4','Clio','Forte','Model 3']}
@@ -365,16 +373,19 @@ frame = pd.DataFrame(data)
 frame.info()
 
 print("This is a Python test in docker!")
+```
 
 Try: build an image with a tag (not the default one "latest").
 
 
 
-Create own docker images - Example 4Create own docker images - Example 4 item optionsCreate own docker images - Example 4
-Enabled:Statistics Tracking
+### Create own docker images - Example 4
+
+
 Example 4: Compose one Dockerfile with a R code. This example helps to understand installing R packages in R environment.
 
-Dockerfile contains:
+- Dockerfile contains:
+```
 FROM ubuntu
 
 ENV DEBIAN_FRONTEND=noninteractive 
@@ -386,20 +397,25 @@ RUN apt update && apt install -y r-base && \
 ADD test.r ./
 
 CMD [“Rscript”, “test.r”]
+```
 
-test.r  contains:
+- test.r  contains:
+```
 library(dplyr)
 
 print("This is a R test in docker!")
+```
 
-NOTE: ENV DEBIAN_FRONTEND=noninteractive for disabling region/country selection when installing packages.
+**NOTE**: ENV DEBIAN_FRONTEND=noninteractive for disabling region/country selection when installing packages.
 
 
 
-Create own docker images - Example 5Create own docker images - Example 5 item optionsCreate own docker images - Example 5
-Enabled:Statistics Tracking
+### Create own docker images - Example 5
+
 Attached Files:
 File CW_example_data.csv Click for more options (18.961 KB)
+
+
 Example 5: Compose one Dockerfile with a R code. This example helps to understand how to access data on host directory.
 
 Dockerfile contains:
