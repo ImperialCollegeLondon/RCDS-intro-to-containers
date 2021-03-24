@@ -267,3 +267,243 @@ Finally, we need to stop the container (it is still running in the background). 
 A docker container is by default isolated from the host system. If you want to keep some files (e.g., data analysis results), you don't want them disappeared when the container exited. Therefore it is likely that you will want to mount a local directory from the host system in the container that you start in order to make files from the host system available within the running container. For now, as a quick example, modify the `docker run`  command above so that the container will have the current directory that you are in on the host machine mounted at `/data`  in the container:
 
 `docker run --rm -t -i -v ${PWD}:/data ubuntu "/bin/bash"`
+
+## Part2: Generate Docker images
+ 
+### Create own Docker images
+
+Where to get help: the [Docker Community Forums](https://forums.docker.com/), [the Docker Community Slack](https://dockr.ly/slack), or [Stack Overflow](https://stackoverflow.com/search?tab=newest&q=docker).
+
+To create your own docker images, you need to compose Dockerfiles.
+
+A Dockerfile contains a set of instructions with options to the instructions. There are many different instructions available, we only cover a few here. See [https://docs.docker.com/engine/reference/builder/](https://docs.docker.com/engine/reference/builder/) for a full description.
+
+In our simple Dockerfile, we have three instructions:
+
+- `FROM`: Initialises the build and specifies the base image for subsequent instructions - all Dockerfiles start with this instruction.
+- `RUN`: Runs a command (using /bin/sh on Linux).
+- `ADD`: Copies new files, directories from <src> and adds them to the filesystem of the image at the path <dest>.
+- `CMD`: The default computational work that will be preformed when the container is executed using `docker run`. There can be only one CMD instruction in a Dockerfile.
+- `ENTRYPOINT`: An ENTRYPOINT allows you to configure a container that will run as an executable. The best use for ENTRYPOINT is to set the image’s main command, allowing that image to be run as though it was that command (and then use CMD as the default flags).
+- `WORKDIR`: The WORKDIR instruction sets the working directory for any RUN, CMD, ENTRYPOINT, COPY and ADD instructions that follow it in the Dockerfile. If the WORKDIR doesn’t exist, it will be created even if it’s not used in any subsequent Dockerfile instruction.
+
+To build a docker image:
+
+- Make sure in the same directory as where the Dockerfile is saved.
+- Run the following command line:  "docker build -t <docker image name[:tag]> ."   (no quotation marks, and do NOT miss the . at the end. :tag is optional, and it is "latest" by default)
+
+
+### Create own docker images - Example 1
+
+Example 1: Compose one Dockerfile and one bash script
+
+- Dockerfile contains:
+
+```
+FROM ubuntu 
+
+ADD print.sh ./ 
+
+RUN chmod a+x ./print.sh 
+
+CMD [“./print.sh”]
+```
+
+- print.sh (start without shebang line) contains:
+
+```
+#!/bin/bash
+
+echo "This is a print test"
+
+```
+
+NOTE: shebang line (#!/bin/bash) means running the file using Bash Shell.
+
+Create own docker images - Example 2Create own docker images - Example 2 item optionsCreate own docker images - Example 2
+Enabled:Statistics Tracking
+Example 2: Compose one Dockerfile with a simple Python code.
+
+Dockerfile contains:
+FROM ubuntu
+
+RUN apt update && apt install -y python3 
+
+ADD py_test.py ./ 
+
+CMD [“python”, “py_test.py”]
+
+py_test.py  contains:
+print("This is a Python test in docker!")
+
+NOTE: Packages need to be installed using RUN.
+
+
+
+Create own docker images - Example 3Create own docker images - Example 3 item optionsCreate own docker images - Example 3
+Enabled:Statistics Tracking
+Example 3: Compose one Dockerfile, and a Python code with a sample pandas dataset.
+
+Dockerfile contains:
+FROM ubuntu
+
+RUN apt update && apt install -y python3 python3-pip && pip3 install pandas
+
+ADD py_test.py ./
+
+CMD [“python3”, “py_test.py”]
+
+py_test.py  contains:
+
+
+import pandas as pd
+
+data = { 'Company' : ['VW','Toyota','Renault','KIA','Tesla'], 'Cars Sold (millions)' : [10.8,10.7,10.3,7.4,0.25], 'Best Selling Model' : ['Golf','RAV4','Clio','Forte','Model 3']}
+
+frame = pd.DataFrame(data)
+
+frame.info()
+
+print("This is a Python test in docker!")
+
+Try: build an image with a tag (not the default one "latest").
+
+
+
+Create own docker images - Example 4Create own docker images - Example 4 item optionsCreate own docker images - Example 4
+Enabled:Statistics Tracking
+Example 4: Compose one Dockerfile with a R code. This example helps to understand installing R packages in R environment.
+
+Dockerfile contains:
+FROM ubuntu
+
+ENV DEBIAN_FRONTEND=noninteractive 
+
+RUN apt update && apt install -y r-base && \
+
+    R -e "install.packages('dplyr', repos='http://cran.r-project.org')"
+
+ADD test.r ./
+
+CMD [“Rscript”, “test.r”]
+
+test.r  contains:
+library(dplyr)
+
+print("This is a R test in docker!")
+
+NOTE: ENV DEBIAN_FRONTEND=noninteractive for disabling region/country selection when installing packages.
+
+
+
+Create own docker images - Example 5Create own docker images - Example 5 item optionsCreate own docker images - Example 5
+Enabled:Statistics Tracking
+Attached Files:
+File CW_example_data.csv Click for more options (18.961 KB)
+Example 5: Compose one Dockerfile with a R code. This example helps to understand how to access data on host directory.
+
+Dockerfile contains:
+FROM ubuntu
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+WORKDIR /usr/local/src
+
+RUN apt update && apt install -y r-base && \
+
+    R -e "install.packages('dplyr', repos='http://cran.r-project.org')" 
+
+ADD test.r ./
+
+ENTRYPOINT ["Rscript", "test.r"]
+
+test.r  contains:
+library(dplyr)
+
+args <- commandArgs(trailingOnly = TRUE)
+
+print(args[1])
+
+print(args[2])
+
+data <- read.csv(args[1], stringsAsFactors = F)
+
+data_new <- data %>% filter(GENDER == 'MALE')
+
+if (!dir.exists(args[2])) {
+
+  dir.create(args[2])
+
+}
+
+write.csv(data_new, paste(args[2],'output.csv',sep=''))
+
+print("This is a R test in docker!")
+
+Try:
+
+docker run --rm -v ${PWD}:/data <docker image name> /data/dataset/CW_example_data.csv /data/output/
+
+NOTE:
+
+Download the attached dataset to your local directory.
+ENV DEBIAN_FRONTEND=noninteractive for disabling region/country selection when installing packages.
+When taking input parameters from docker run, need to use ENTRYPOINT
+
+
+Create own docker images - Example 6Create own docker images - Example 6 item optionsCreate own docker images - Example 6
+Enabled:Statistics Tracking
+Attached Files:
+File CW_example_data.csv Click for more options (18.961 KB)
+Example 6: Compose one Dockerfile with a Python code. This example helps to understand how to access data on host directory.
+
+Dockerfile contains:
+FROM ubuntu
+
+RUN apt update && apt install -y python3 python3-pip && pip3 install pandas
+
+ADD py_test.py ./
+
+ENTRYPOINT ["python3", "py_test.py"]
+
+py_test.py  contains:
+
+
+import sys
+
+import pandas as pd
+
+ 
+
+args = sys.argv
+
+input = args[1]
+
+output = args[2]+"output.csv"
+
+ 
+
+df = pd.read_csv(input)
+
+print(df)
+
+ 
+
+data = { 'Company' : ['VW','Toyota','Renault','KIA','Tesla'], 'Cars Sold (millions)' : [10.8,10.7,10.3,7.4,0.25], 'Best Selling Model' : ['Golf','RAV4','Clio','Forte','Model 3']}
+
+frame = pd.DataFrame(data)
+
+ 
+
+frame.to_csv(output)
+
+print("This is a Python test in docker!")
+
+Try:
+
+docker run --rm -v ${PWD}:/data  <docker image name> /data/dataset/CW_example_data.csv /data/output/
+
+NOTE:
+
+Download the attached dataset to your local directory.
+When taking input parameters from docker run, need to use ENTRYPOINT
