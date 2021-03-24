@@ -413,12 +413,13 @@ print("This is a R test in docker!")
 ### Create own docker images - Example 5
 
 Attached Files:
-File [CW_example_data.csv](https://raw.githubusercontent.com/jianlianggao/course-intro-to-containers/main/sample_data/CW_example_data.csv) (18.961 KB)
+File [CW_example_data.csv](https://raw.githubusercontent.com/jianlianggao/course-intro-to-containers/main/sample_data/CW_example_data.csv) (18.961 KB, right click and save link as CW_example_data.csv to your local drive)
 
 
 Example 5: Compose one Dockerfile with a R code. This example helps to understand how to access data on host directory.
 
-Dockerfile contains:
+- Dockerfile contains:
+```
 FROM ubuntu
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -432,8 +433,10 @@ RUN apt update && apt install -y r-base && \
 ADD test.r ./
 
 ENTRYPOINT ["Rscript", "test.r"]
+```
 
-test.r  contains:
+- test.r  contains:
+```
 library(dplyr)
 
 args <- commandArgs(trailingOnly = TRUE)
@@ -455,25 +458,30 @@ if (!dir.exists(args[2])) {
 write.csv(data_new, paste(args[2],'output.csv',sep=''))
 
 print("This is a R test in docker!")
+```
 
 Try:
 
+```
 docker run --rm -v ${PWD}:/data <docker image name> /data/dataset/CW_example_data.csv /data/output/
+```
 
-NOTE:
+**NOTE**:
 
 Download the attached dataset to your local directory.
 ENV DEBIAN_FRONTEND=noninteractive for disabling region/country selection when installing packages.
 When taking input parameters from docker run, need to use ENTRYPOINT
 
 
-Create own docker images - Example 6Create own docker images - Example 6 item optionsCreate own docker images - Example 6
-Enabled:Statistics Tracking
-Attached Files:
-File CW_example_data.csv Click for more options (18.961 KB)
-Example 6: Compose one Dockerfile with a Python code. This example helps to understand how to access data on host directory.
+### Create own docker images - Example 6
 
-Dockerfile contains:
+Attached Files:
+File [CW_example_data.csv](https://raw.githubusercontent.com/jianlianggao/course-intro-to-containers/main/sample_data/CW_example_data.csv) (18.961 KB, right click and save link as CW_example_data.csv to your local drive)
+
+
+- Dockerfile contains:
+
+```
 FROM ubuntu
 
 RUN apt update && apt install -y python3 python3-pip && pip3 install pandas
@@ -481,10 +489,11 @@ RUN apt update && apt install -y python3 python3-pip && pip3 install pandas
 ADD py_test.py ./
 
 ENTRYPOINT ["python3", "py_test.py"]
+```
 
-py_test.py  contains:
+- py_test.py  contains:
 
-
+```
 import sys
 
 import pandas as pd
@@ -515,11 +524,142 @@ frame.to_csv(output)
 
 print("This is a Python test in docker!")
 
+```
+
 Try:
 
+```
 docker run --rm -v ${PWD}:/data  <docker image name> /data/dataset/CW_example_data.csv /data/output/
+```
 
-NOTE:
+**NOTE**:
 
-Download the attached dataset to your local directory.
-When taking input parameters from docker run, need to use ENTRYPOINT
+1. Download the attached dataset to your local directory.
+2 .When taking input parameters from docker run, need to use ENTRYPOINT
+
+## Part3: Share containers and scale up
+
+### Share Docker images
+
+Docker engine saves its virtual image data in intricate locations. For example 
+
+in MacOS,
+
+~/Library/Containers/com.docker.docker/Data/vms/0
+
+and the data in the directory is also hard to understand because the data look like:
+
+<img src="/images/docker_image_location_mac.png">
+
+It's incredibly difficult to know what needs to be copied in order to use your own docker images on another computer. 
+
+Solution: use `docker save` command.
+
+Examples:
+
+1. `docker save -o r_docker.tar r_docker`  (fast but no compression)
+
+2. `docker save r_docker | gzip > r_docker.tar.gz` (slow but with compression)
+
+Now try:
+
+remove the existing image from the virtual environment (hint: from docker image list)
+
+Then:
+
+load saved docker image.
+
+command:  `docker load -i <image_name>`
+
+### Share docker images -- group activity
+
+Group activity: (in pairs)
+
+Step 1. create your own docker image.
+
+Step 2. send file to your peer. (By fileexchange at Imperial College, or Google Drive, Dropbox, OneDrive etc).
+
+Step 3. Your peer load received image into docker and test run. 
+
+### Docker hub
+
+Share docker images via Docker Hub.
+
+1. Upload docker images onto Docker Hub
+
+- Login Docker hub via command line
+    - `docker login`
+- Create docker images with <docker hub account name>/<docker image name>:[tag] ([tag] is optional)
+    - for example: `docker build -t jianlianggao/r_docker2 .`
+- Or change docker image's name with docker tag <existing name> <new name:[tag]>
+    - for example: `docker tag r_docker2 jianlianggao/r_docker2`
+- Push docker images onto Docker Hub
+    - for example: `docker push jianlianggao/r_docker2`
+    
+2. Download docker images from Docker Hub
+
+- Use command: `docker pull` 
+    - for example: `docker pull jianlianggao/r_docker2` 
+    
+NOTE: be careful about the tags.
+
+
+### Docker Hub -- group activity
+
+Group activity: (in pairs)
+
+Step 1. Create your own docker image.
+
+Step 2. Push docker image to Docker Hub.
+
+Step 3. Your peer downloads your image from Docker Hub and tests run. 
+
+### Singularity
+
+HPC application:
+
+(detailed instruction for using HPC can be found at [https://imperialcollegelondon.app.box.com/s/kwjxbd5bc87w296wo0m7fdwo9jct5vvs](https://imperialcollegelondon.app.box.com/s/kwjxbd5bc87w296wo0m7fdwo9jct5vvs) )
+
+- HPC check available Singularity modules
+    - `module avail`
+- Load module
+    - for example: `module load singular/3.1.1`
+- Download docker images
+    - for example: `singularity pull --name r_docker3.simg docker://jianlianggao/r_docker3`
+    - NOTE: be careful about tags
+- Compose .pbs script for one single job
+    - for example: singularity_test1.pbs
+
+```
+#PBS -l walltime=00:20:00
+
+#PBS -l select=1:ncpus=2:mem=8gb
+
+module load singular/3.1.1
+
+singularity run -B /rds/general/user/jgao/home/singularity_test:/data /rds/general/user/jgao/home/singularity_test/r_docker3.simg /data/dataset/CW_example_data.csv /data/
+
+```
+    - qsub singularity_test1.pbs
+
+
+- Compose .pbs script for parallel jobs
+    - for example: singularity_par_test1.pbs
+```
+#PBS -l walltime=00:20:00
+
+#PBS -l select=1:ncpus=2:mem=8gb
+
+#PBS -J 1-5
+
+module load singular/3.1.1
+
+singularity run -B /rds/general/user/jgao/home/singularity_test:/data /rds/general/user/jgao/home/singularity_test/r_docker3.simg /data/dataset/CW_example_data.csv /data/output${PBS_ARRAY_INDEX}/
+```
+
+## Part4: Acknowledgement
+
+Many thanks to 
+Dr. Jeremy Cohen, who provided course context and idea.
+
+Dr. Katerina Michalickova and Dr. Magdalena Jara, who discussed with me and provided comments on the design of this course.
