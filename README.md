@@ -413,7 +413,7 @@ print("This is a R test in docker!")
 ### Create own docker images - Example 5
 
 Attached Files:
-File CW_example_data.csv Click for more options (18.961 KB)
+File [CW_example_data.csv](https://raw.githubusercontent.com/jianlianggao/course-intro-to-containers/main/sample_data/CW_example_data.csv) (18.961 KB)
 
 
 Example 5: Compose one Dockerfile with a R code. This example helps to understand how to access data on host directory.
