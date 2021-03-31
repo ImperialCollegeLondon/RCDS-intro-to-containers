@@ -663,3 +663,6 @@ Many thanks to
 Dr. Jeremy Cohen, who provided course context and idea.
 
 Dr. Katerina Michalickova and Dr. Magdalena Jara, who discussed with me and provided comments on the design of this course.
+
+# Feedback form
+If you're taking this course through the Graduate School, please fill out [the feedback form](http://bit.ly/rcds2021).
