@@ -202,7 +202,10 @@ that is because there are containers created that depend on this image.
 
 Then you need find what containers are depending on the image(s) to remove it from the containers list first.
 
-docker container lsordocker container ls --allthendocker container rm IDor docker container rm container_name
+`docker container ls` or `docker container ls --all`
+then
+`docker container rm ID` or `docker container rm container_name`
+
 NOTE: 
 
 If you want to remove all exited containers at once you can use the docker containers prune command.
