@@ -180,6 +180,7 @@ Try:
 run the above command again and observe the difference.
 
 * The “digest” is a secure fingerprint (a “hash”) of the particular version of the container image that you now have.
+* If you have any trouble, try to login to docker by running `docker login` (Thanks Gordon for this tip).
 
 4. List of docker images on your computer
 
@@ -539,6 +540,9 @@ docker run --rm -v ${PWD}:/data  <docker image name> /data/dataset/CW_example_da
 
 1. Download the attached dataset to your local directory.
 2 .When taking input parameters from docker run, need to use ENTRYPOINT
+
+**Tips**:
+1. You can try to build your container image(s) based-on an existing image on your computer, that will speed up your image(s) creating. (Thanks to Drake for this tip).
 
 ## Part3: Share containers and scale up
 
