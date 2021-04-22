@@ -309,7 +309,7 @@ ADD print.sh ./
 
 RUN chmod a+x ./print.sh 
 
-CMD [“./print.sh”]
+CMD ["./print.sh"]
 ```
 
 - print.sh (start without shebang line) contains:
@@ -336,7 +336,7 @@ RUN apt update && apt install -y python3
 
 ADD py_test.py ./ 
 
-CMD [“python”, “py_test.py”]
+CMD ["python", "py_test.py"]
 ```
 
 - py_test.py  contains:
@@ -362,7 +362,7 @@ RUN apt update && apt install -y python3 python3-pip && pip3 install pandas
 
 ADD py_test.py ./
 
-CMD [“python3”, “py_test.py”]
+CMD ["python3", "py_test.py"]
 ```
 - py_test.py  contains:
 
@@ -399,7 +399,7 @@ RUN apt update && apt install -y r-base && \
 
 ADD test.r ./
 
-CMD [“Rscript”, “test.r”]
+CMD ["Rscript", "test.r"]
 ```
 
 - test.r  contains:
