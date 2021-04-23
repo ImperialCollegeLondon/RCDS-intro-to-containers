@@ -498,7 +498,7 @@ ENTRYPOINT ["python3", "py_test.py"]
 - py_test.py  contains:
 
 ```
-import sys
+import sys,os
 
 import pandas as pd
 
@@ -522,7 +522,9 @@ data = { 'Company' : ['VW','Toyota','Renault','KIA','Tesla'], 'Cars Sold (millio
 
 frame = pd.DataFrame(data)
 
- 
+# Thanks to Chen Chen for suggesting the following 2 lines to avoid partail failure of the image run.
+if not os.path.exists(args[2]):
+    os.makedirs(args[2])
 
 frame.to_csv(output)
 
