@@ -596,8 +596,8 @@ Share docker images via Docker Hub.
 
 - Login Docker hub via command line
     - `docker login`
-- Create docker images with <docker hub account name>/<docker image name>:[tag] ([tag] is optional)
-    - for example: `docker build -t jianlianggao/r_docker2 .`
+- Create docker images with `<docker hub account name>/<docker image name>:[tag]` ([tag] is optional)
+    - for example: `docker build -t jianlianggao/r_docker2 .` or `docker build -t jianlianggao/r_docker2:20210423 .`
 - Or change docker image's name with docker tag <existing name> <new name:[tag]>
     - for example: `docker tag r_docker2 jianlianggao/r_docker2`
 - Push docker images onto Docker Hub
