@@ -548,6 +548,10 @@ docker run --rm -v ${PWD}:/data  <docker image name> /data/dataset/CW_example_da
 **Tips**:
 1. You can try to build your container image(s) based-on an existing image on your computer, that will speed up your image(s) creating. (Thanks to Drake for this tip).
 
+### Create own docker images - Example 7
+
+Try: Create a new docker image based on the existing image from example 6. In the new docker image, try to install a new Python package, for example: numpy. Then test the numpy package in Python script.
+
 ## Part3: Share containers and scale up
 
 ### Share Docker images
