@@ -347,7 +347,7 @@ CMD ["python", "py_test.py"]
 ```
 print("This is a Python test in docker!")
 ```
-
+TIP: You need to interact with the container instance to debug error(s) you meet.
 NOTE: Packages need to be installed using RUN.
 
 
@@ -489,6 +489,8 @@ File [CW_example_data.csv](https://raw.githubusercontent.com/jianlianggao/course
 
 ```
 FROM ubuntu
+
+WORKDIR /usr/local/src
 
 RUN apt update && apt install -y python3 python3-pip && pip3 install pandas
 
