@@ -642,7 +642,7 @@ HPC application:
 - Load module
     - for example: `module load singular/3.1.1`
 - Download docker images
-    - for example: `singularity pull --name r_docker3.simg docker://jianlianggao/r_docker3`
+    - for example: `singularity pull --name pypd_docker.simg docker://jianlianggao/pypd_docker:202106`
     - NOTE: be careful about tags
 - Compose .pbs script for one single job
     - for example: singularity_test1.pbs
@@ -654,7 +654,7 @@ HPC application:
 
 module load singular/3.1.1
 
-singularity run -B /rds/general/user/jgao/home/singularity_test:/data /rds/general/user/jgao/home/singularity_test/r_docker3.simg /data/dataset/CW_example_data.csv /data/
+singularity run -B /rds/general/user/jgao/home/singularity_test:/data /rds/general/user/jgao/home/singularity_test/pypd_docker.simg /data/dataset/CW_example_data.csv /data/
 
 ```
     - qsub singularity_test1.pbs
@@ -671,7 +671,7 @@ singularity run -B /rds/general/user/jgao/home/singularity_test:/data /rds/gener
 
 module load singular/3.1.1
 
-singularity run -B /rds/general/user/jgao/home/singularity_test:/data /rds/general/user/jgao/home/singularity_test/r_docker3.simg /data/dataset/CW_example_data.csv /data/output${PBS_ARRAY_INDEX}/
+singularity run -B /rds/general/user/jgao/home/singularity_test:/data /rds/general/user/jgao/home/singularity_test/pypd_docker.simg /data/dataset/CW_example_data.csv /data/output${PBS_ARRAY_INDEX}/
 ```
 
 ## Part4: Acknowledgement
