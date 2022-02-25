@@ -690,4 +690,4 @@ https://docs.docker.com/compose/gettingstarted/
 and do more research if needed. Or feel free to speak to me by email/Teams
 
 # Feedback form
-If you're taking this course through the Graduate School, please fill out [the feedback form](http://bit.ly/rcds2021).
+If you're taking this course through the Graduate School, please fill out [the feedback form](https://tinyurl.com/rcds2021-22).
