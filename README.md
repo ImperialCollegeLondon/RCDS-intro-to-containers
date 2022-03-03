@@ -393,7 +393,7 @@ Example 4: Compose one Dockerfile with a R code. This example helps to understan
 
 - Dockerfile contains:
 ```
-FROM ubuntu
+FROM ubuntu:bionic
 
 ENV DEBIAN_FRONTEND=noninteractive 
 
