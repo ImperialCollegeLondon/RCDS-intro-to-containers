@@ -31,7 +31,8 @@ This course consists of 3 parts as follows.
 ## On completion of this course you will be able to: 
 
 - Understand the benefits of using containers for research 
-- Use the Docker commands and basic Singularity commandsCompose Dockerfiles to build docker containers
+- Use the Docker commands and basic Singularity commands
+- Compose Dockerfiles to build docker containers
 - Manage Docker Hub repository
 - Share Docker container images
 - Interpret common errors and use these to help debug a container
@@ -284,7 +285,7 @@ To create your own docker images, you need to compose Dockerfiles.
 
 A Dockerfile contains a set of instructions with options to the instructions. There are many different instructions available, we only cover a few here. See [https://docs.docker.com/engine/reference/builder/](https://docs.docker.com/engine/reference/builder/) for a full description.
 
-In our simple Dockerfile, we have three instructions:
+In our simple Dockerfile, we have the following six instructions:
 
 - `FROM`: Initialises the build and specifies the base image for subsequent instructions - all Dockerfiles start with this instruction.
 - `RUN`: Runs a command (using /bin/sh on Linux).
