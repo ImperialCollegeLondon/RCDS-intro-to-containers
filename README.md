@@ -677,24 +677,28 @@ module load singular/3.1.1
 singularity run -B /rds/general/user/jgao/home/singularity_test:/data /rds/general/user/jgao/home/singularity_test/pypd_docker.simg /data/dataset/CW_example_data.csv /data/output${PBS_ARRAY_INDEX}/
 ```
   
-### Nextflow
-  
-You may have also heard about nextflow. It is not covered in this course. If you are keen to know about it, please feel free to start from [Jack Gisby's case study](https://github.com/ImperialCollegeLondon/ReCoDE_rnaseq_pipeline).
 
 ## Part4: Acknowledgement
 
 Many thanks to 
-Dr. Jeremy Cohen, who provided course context and idea.
+[Dr. Jeremy Cohen](https://www.imperial.ac.uk/people/jeremy.cohen), who provided course context and idea. If you are interested in more courses about containers, please click on Dr. Cohen's name to find his contact.
 
 Dr. Katerina Michalickova and Dr. Magdalena Jara, who discussed with me and provided comments on the design of this course.
 
-- Not include
+### Concetps not included
 
+#### Docker-compose
+  
 This workshop does not include docker-compose. If you are interested in docker-compose, please have a look at 
 
 https://docs.docker.com/compose/gettingstarted/
 
 and do more research if needed. Or feel free to speak to me by email/Teams
+  
+#### Nextflow
+  
+You may have also heard about nextflow. It is not covered in this course. If you are keen to know about it, please feel free to start from [Jack Gisby's case study](https://github.com/ImperialCollegeLondon/ReCoDE_rnaseq_pipeline).
+
 
 # Feedback form
 If you're taking this course through the Graduate School, please fill out [the feedback form](https://tinyurl.com/rcds2021-22).
