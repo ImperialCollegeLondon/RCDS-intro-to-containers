@@ -28,15 +28,17 @@ This course consists of 3 parts as follows.
 - **Part 3**: Share container images and scale up with singularity.
   - In this part, you will practice how to share your own container images with others using either Docker Hub distribution or other ways. You will also learn how to run images using singularity on high performance computing cluster or cloud.
 
-## On completion of this course you will be able to: 
+## Intended learning outcomes (ILOs) 
 
-- Understand the benefits of using containers for research 
-- Use the Docker commands and basic Singularity commands
+On completion of this course you will be able to: 
+
+- Remember the benefits of using containers for research 
+- Use the common Docker commands
 - Compose Dockerfiles to build docker containers
 - Manage Docker Hub repository
 - Share Docker container images
 - Interpret common errors and use these to help debug a container
-- Use singularity to scale up containers on HPC 
+- Use basic singularity commands to scale up containers on HPC 
 
 ## Pre-course activities:
 
