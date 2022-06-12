@@ -676,6 +676,10 @@ module load singular/3.1.1
 
 singularity run -B /rds/general/user/jgao/home/singularity_test:/data /rds/general/user/jgao/home/singularity_test/pypd_docker.simg /data/dataset/CW_example_data.csv /data/output${PBS_ARRAY_INDEX}/
 ```
+  
+### Nextflow
+  
+You may have also heard about nextflow. It is not covered in this course. If you are keen to know about it, please feel free to start from [Jack Gisby's case study](https://github.com/ImperialCollegeLondon/ReCoDE_rnaseq_pipeline).
 
 ## Part4: Acknowledgement
 
