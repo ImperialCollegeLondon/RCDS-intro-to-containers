@@ -681,7 +681,7 @@ singularity run -B /rds/general/user/jgao/home/singularity_test:/data /rds/gener
 ## Part4: Acknowledgement
 
 Many thanks to 
-[Dr. Jeremy Cohen](https://www.imperial.ac.uk/people/jeremy.cohen), who provided course context and idea. If you are interested in more courses about containers, please click on Dr. Cohen's name to find his contact.
+[Dr. Jeremy Cohen](https://www.imperial.ac.uk/people/jeremy.cohen), who co-developed this course and provided course context and idea. If you are interested in more courses about containers, please click on Dr. Cohen's name to find his contact.
 
 Dr. Katerina Michalickova and Dr. Magdalena Jara, who discussed with me and provided comments on the design of this course.
 
