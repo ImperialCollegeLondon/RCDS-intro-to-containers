@@ -680,8 +680,13 @@ singularity run -B /rds/general/user/jgao/home/singularity_test:/data /rds/gener
 
 ## Part4: Acknowledgement
 
+The materials in this lesson are inspired by
+
+D. M. Eyers, S. L. R. Stevens, A. Turner, C. Koch and J. Cohen. "Reproducible computational environments using containers: Introduction to Docker".
+Version 2020.09a (4a93bd67aa), September 2020. Carpentries Incubator. https://github.com/carpentries-incubator/docker-introduction
+  
 Many thanks to 
-[Dr. Jeremy Cohen](https://www.imperial.ac.uk/people/jeremy.cohen), who co-developed this course and provided course context and idea. If you are interested in more courses about containers, please click on Dr. Cohen's name to find his contact.
+[Dr. Jeremy Cohen](https://www.imperial.ac.uk/people/jeremy.cohen), who kindly provided feedback and ideas. If you are interested in more courses about containers, please click on Dr. Cohen's name to find his contact.
 
 Dr. Katerina Michalickova and Dr. Magdalena Jara, who discussed with me and provided comments on the design of this course.
 
