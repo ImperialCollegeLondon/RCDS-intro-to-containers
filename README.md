@@ -329,6 +329,19 @@ echo "This is a print test"
 
 NOTE: shebang line (#!/bin/bash) means running the file using Bash Shell.
 
+- Try to run a slightly more complicated shell script:
+```
+#!/bin/bash
+
+echo "This is a Docker test"
+
+for i in {1..10}
+do
+  echo $i > /data/file_$i.txt
+done
+```
+NOTE: Build an image and test it with a mounted directory.
+
 ### Create own docker images - Example 2
 
 Example 2: Compose one Dockerfile with a simple Python code.
