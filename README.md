@@ -675,6 +675,11 @@ singularity run -B /rds/general/user/jgao/home/singularity_test:/data /rds/gener
 ```
     - qsub singularity_test1.pbs
 
+NOTE: if something goes wrong, to debug singularity images, run the following command
+```
+singularity shell -C <image name>
+```
+
 
 - Compose .pbs script for parallel jobs
     - for example: singularity_par_test1.pbs
