@@ -674,6 +674,12 @@ singularity run -B /rds/general/user/jgao/home/singularity_test:/data /rds/gener
 
 ```
     - qsub singularity_test1.pbs
+```
+To check the status of the submitted job, run the following command
+```
+qstat <job ID>
+```
+
 
 NOTE: if something goes wrong, to debug singularity images, run the following command
 ```
@@ -694,7 +700,10 @@ module load singular/3.1.1
 
 singularity run -B /rds/general/user/jgao/home/singularity_test:/data /rds/general/user/jgao/home/singularity_test/pypd_docker.simg /data/dataset/CW_example_data.csv /data/output${PBS_ARRAY_INDEX}/
 ```
-  
+To view the status of parallel jobs, please use the following command:
+```
+qstat -rt <job ID>[]
+```
 
 ## Part4: Acknowledgement
 
