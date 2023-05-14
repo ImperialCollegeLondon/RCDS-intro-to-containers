@@ -23,7 +23,7 @@ This course consists of 3 parts as follows.
   - In this part, you will learn why containers are used, what containers are, and you will get hands-on practice with Docker (the most popular container tool) command lines.
 
 - **Part 2**: Create containers with examples. 
-  - In this part, you will get familiar with creating container images in Docker environment. You will learn to compose Dockerfile and build container images through examples including bash, Python and R. You will get hands-on practice as well.
+  - In this part, you will get familiar with creating container images in Docker environment. You will learn to compose Dockerfile and build container images through examples including bash, Python, R and C++. You will get hands-on practice as well.
 
 - **Part 3**: Share container images and scale up with singularity.
   - In this part, you will practice how to share your own container images with others using either Docker Hub distribution or other ways. You will also learn how to run images using singularity on high performance computing cluster or cloud.
