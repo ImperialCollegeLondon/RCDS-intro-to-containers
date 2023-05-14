@@ -635,7 +635,13 @@ int main(int argc, char **argv)
 
 ./helloworld $OUT_DIR $VAR1 $VAR2 $VAR3
 ```
-### Thanks to Amy's work [Amy Tabb](https://amytabb.com/tips/tutorials/2018/07/28/docker-tutorial-c-plus-plus/) .
+                                                             
+- To test the container image, please try:
+```
+docker run -it --rm -v $PWD/output_dir:/output_dir -e VAR1=15 -e VAR2=20 hello_c
+```
+                                                             
+*Thanks to Amy's work [Amy Tabb](https://amytabb.com/tips/tutorials/2018/07/28/docker-tutorial-c-plus-plus/) .*
                                                              
                                                              
 ## Part3: Share containers and scale up
