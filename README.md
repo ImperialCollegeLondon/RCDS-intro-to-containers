@@ -569,7 +569,75 @@ docker run --rm -v ${PWD}:/data  <docker image name> /data/dataset/CW_example_da
 ### Create own docker images - Example 7
 
 Try: Create a new docker image based on the existing image from example 6. In the new docker image, try to install a new Python package, for example: numpy. Then test the numpy package in Python script.
+  
+### Create own docker images - Example 8
 
+Example 8: Compose one Dockerfile with a shell script and a simple C++ code.
+
+- Dockerfile contains:
+
+```
+FROM ubuntu
+ENV DEBIAN_FRONTEND noninteractive
+RUN apt-get update && \
+    apt-get -y install g++ mono-mcs && \
+    rm -rf /var/lib/apt/lists/*
+WORKDIR /usr/local/src
+ENV NAME VAR1
+ENV NAME VAR2
+ENV NAME VAR3
+ENV OUT_DIR=/output_dir/
+ADD run_helloC.sh ./
+ADD helloworld.cpp ./
+RUN g++ -o helloworld helloworld.cpp
+
+CMD ["/bin/sh", "./run_helloC.sh"]
+```
+
+- helloworld.cpp  contains:
+
+```
+#include <iostream>
+#include <string>
+#include <fstream> 
+using namespace std;
+
+int main(int argc, char **argv)
+{
+  cout << "Hello world example, with a directory and arguments!" << endl;
+
+  ofstream out;
+  string val;
+  if (argc >= 2){
+        val = argv[1];
+        cout << "Directory is : " << val << endl;
+
+        string filename = val + "/test_write.txt";
+        out.open(filename.c_str());
+        out << "Hello World C++ example!" << endl;
+         for (int i = 2; i < argc; i++){
+                val = argv[i];
+                cout << "Argument " << i << " " << val << endl;
+                out << "Argument " << i << " " << val << endl;
+        }
+        out.close();
+  } else
+
+
+  return 0;
+}
+```
+
+- run_helloC.sh  contains:
+                                                             
+```
+#!/bin/sh
+
+./helloworld $OUT_DIR $VAR1 $VAR2 $VAR3
+```
+### Thanks to Amy's work [Amy Tabb](https://amytabb.com/tips/tutorials/2018/07/28/docker-tutorial-c-plus-plus/) .
+                                                             
+                                                             
 ## Part3: Share containers and scale up
 
 ### Share Docker images
