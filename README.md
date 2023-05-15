@@ -197,7 +197,7 @@ Run:
 
 If you need to reclaim disk space, you can remove image files. The images and their corresponding containers can start to take up a lot of disk space if you don’t clean them up occasionally. If you want to remove an image, you will need to find out details such as the image ID or name of the repository. 
 
-`docker image rm hello-world`
+`docker image rm hello-world` (or `docker rmi hello-world`) (or `docker rmi <image ID>`)
     
 if you get the following error message (example):
 
@@ -210,7 +210,7 @@ Then you need find what containers are depending on the image(s) to remove it fr
 
 `docker container ls` or `docker container ls --all`
 then
-`docker container rm ID` or `docker container rm container_name`
+`docker container rm ID` (or `docker rm <container ID>`) or `docker container rm container_name`
 
 NOTE: 
 
