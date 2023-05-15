@@ -277,6 +277,32 @@ A docker container is by default isolated from the host system. If you want to k
 
 `docker run --rm -t -i -v ${PWD}:/data ubuntu "/bin/bash"`
 
+5. More advanced interactions
+
+For more advanced options, please refer to [docker run documentation](https://docs.docker.com/engine/reference/commandline/run/)
+
+This is an example for running a web service (HackMD, an online doc editor) using docker engine. Thanks to [HackMD](https://hackmd.io/@MaxWu/Hk39SWD0x?type=view)
+
+
+First, setup the environment. 
+
+```
+docker network create backend
+
+docker volume create database
+```
+Second, start database engine with postgreSQL.
+
+```
+docker run -d --name database --network backend -e POSTGRES_USER=hackmd -e POSTGRES_PASSWORD=hackmdpass -e POSTGRES_DB=hackmd -v database:/var/lib/postgresql/data postgres:9.6-alpine
+```
+
+Finally, start HackMD.
+
+```
+docker run -d --name app --network backend -e HMD_DB_URL=postgres://hackmd:hackmdpass@database:5432/hackmd -p 3000:3000 --restart always --depends-on database hackmdio/hackmd:1.2.0
+```
+
 ## Part2: Generate Docker images
  
 ### Create own Docker images
