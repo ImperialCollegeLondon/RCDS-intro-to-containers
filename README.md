@@ -172,7 +172,7 @@ This is illustrated in the diagram below:
   
 2. A command that checks that the virtual machine host is running is the Docker container list command.
 
-      `docker container ls`
+      `docker container ls`  (or `docker ps`)
 
 3. One of the simplest Docker container images just allows you to create containers that print a welcome message.
 
@@ -191,7 +191,7 @@ run the above command again and observe the difference.
 
 Run:
 
-`docker image ls`
+`docker image ls`  (or `docker images`)
       
 5. Remove docker image(s)
 
