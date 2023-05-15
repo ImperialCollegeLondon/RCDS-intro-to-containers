@@ -226,7 +226,7 @@ Finally, you are able to remove the unwanted docker image(s).
 
 `docker image rm $(docker image ls -q)`
 
-This command assumes you are using a bash (or compatible) shell. If you happen to be using another shell such as csh or tcsh, this command will fail and you should instead wrap the docker image ls -q part of the command in “backticks”, e.g. "`docker image ls -q`"
+This command assumes you are using a bash (or compatible) shell. If you happen to be using another shell such as csh or tcsh, this command will fail and you should instead wrap the docker image ls -q part of the command in “backticks”, e.g. ``docker image ls -q``
 
 ### More interaction with Docker
 
