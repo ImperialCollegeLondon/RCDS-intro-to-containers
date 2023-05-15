@@ -300,7 +300,7 @@ docker run -d --name database --network backend -e POSTGRES_USER=hackmd -e POSTG
 Finally, start HackMD.
 
 ```
-docker run -d --name app --network backend -e HMD_DB_URL=postgres://hackmd:hackmdpass@database:5432/hackmd -p 3000:3000 --restart always --depends-on database hackmdio/hackmd:1.2.0
+docker run -d --name app --network backend -e HMD_DB_URL=postgres://hackmd:hackmdpass@database:5432/hackmd -p 3000:3000 --restart always --link database hackmdio/hackmd:1.2.0
 ```
 
 ## Part2: Generate Docker images
