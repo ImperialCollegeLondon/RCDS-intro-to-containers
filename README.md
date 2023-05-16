@@ -307,7 +307,7 @@ To test your local HackMD service, please visit 127.0.0.1:3000 on your computer
 
 or 
 
-<your computer IP>:3000 on your mobile devices / another computer which are connected to the same WiFi.
+\<your computer IP\>:3000 on your mobile devices / another computer which are connected to the same WiFi.
   
 Try: Stop the HackMD service and remove the containers after testing.
 
