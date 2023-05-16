@@ -303,6 +303,16 @@ Finally, start HackMD.
 docker run -d --name app --network backend -e HMD_DB_URL=postgres://hackmd:hackmdpass@database:5432/hackmd -p 3000:3000 --restart always --link database hackmdio/hackmd:1.2.0
 ```
 
+To test your local HackMD service, please visit 127.0.0.1:3000 on your computer 
+
+or 
+
+<your computer IP>:3000 on your mobile devices / another computer which are connected to the same WiFi.
+  
+Try: Stop the HackMD service and remove the containers after testing.
+
+
+
 ## Part2: Generate Docker images
  
 ### Create own Docker images
