@@ -222,9 +222,14 @@ Be careful with this command. If you have containers you may want to reconnect t
 
 Finally, you are able to remove the unwanted docker image(s).
 
-6. Remove all images.
+6. Remove all container instances and images.
 
-`docker image rm $(docker image ls -q)`
+for removing all exited container instances, use
+`docker rm $(docker ps -a -q)`
+
+for removing all images, use
+
+`docker image rm $(docker image ls -q)` (this command will fail for the images sharing the same image IDs)
 
 This command assumes you are using a bash (or compatible) shell. If you happen to be using another shell such as csh or tcsh, this command will fail and you should instead wrap the docker image ls -q part of the command in “backticks”, e.g. \`docker image ls -q\`
 
