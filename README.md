@@ -786,10 +786,9 @@ HPC application:
 module load singular/3.1.1
 
 singularity run -B /rds/general/user/jgao/home/singularity_test:/data /rds/general/user/jgao/home/singularity_test/pypd_docker.simg /data/dataset/CW_example_data.csv /data/
+```
 
-```
-    - qsub singularity_test1.pbs
-```
+  - submit the job by running `qsub singularity_test1.pbs`
 
 To check the status of the submitted job, run the following command
 
