@@ -684,7 +684,12 @@ docker run -it --rm -v $PWD/output_dir:/output_dir -e VAR1=15 -e VAR2=20 hello_c
                                                              
 *Thanks to Amy's work [Amy Tabb](https://amytabb.com/tips/tutorials/2018/07/28/docker-tutorial-c-plus-plus/) .*
                                                              
-                                                             
+### After building container image(s): release hard drive space
+
+- prune
+
+To clean up all build cache, run `docker builder prune -a` 
+
 ## Part3: Share containers and scale up
 
 ### Share Docker images
