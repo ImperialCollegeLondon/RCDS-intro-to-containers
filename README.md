@@ -531,9 +531,12 @@ docker run --rm -v ${PWD}:/data <docker image name> /data/dataset/CW_example_dat
 
 **NOTE**:
 
-Download the attached dataset to your local directory.
+1. Download the attached dataset to your local directory.
 ENV DEBIAN_FRONTEND=noninteractive for disabling region/country selection when installing packages.
 When taking input parameters from docker run, need to use ENTRYPOINT
+
+2. If you run docker online (play-with-docker), you will need to generate key pairs on your computer before you can upload data file using `scp`.
+   To generate key pairs for connecting to your docker online instance, run the command `ssh-keygen -t ed25519 -P "" -f ~/.ssh/id_ed25519` in your terminal window (tested in a MacOS terminal window. should work in a Ubuntu terminal window. For a Windows command window, not the PowerShell window, `ssh-keygen` may exist in `C:\Windows\System32\OpenSSH\` and you may need to add the full path to `ssh-keygen.exe` in order to run the command)
 
 
 ### Create own docker images - Example 6
