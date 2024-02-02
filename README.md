@@ -808,7 +808,7 @@ qstat <job ID>
 ```
 
 
-NOTE: if something goes wrong, to debug singularity images, run the following command
+NOTE: **singularity may not like the `WORKDIR` setting in the Dockefile. A full path should then be added to the `ENTRYPOINT` setting and rebuild the container image**. if something goes wrong, to debug singularity images, run the following command
 
 ```
 singularity shell -C <image name>
