@@ -776,7 +776,7 @@ Step 3. Your peer downloads your image from Docker Hub and tests run.
 
 HPC application:
 
-(detailed instruction for using HPC can be found at [https://imperialcollegelondon.app.box.com/s/kwjxbd5bc87w296wo0m7fdwo9jct5vvs](https://imperialcollegelondon.app.box.com/s/kwjxbd5bc87w296wo0m7fdwo9jct5vvs) )
+(detailed instruction for using HPC can be found at [https://imperialcollegelondon.app.box.com/s/kwjxbd5bc87w296wo0m7fdwo9jct5vvs](https://imperialcollegelondon.app.box.com/s/kwjxbd5bc87w296wo0m7fdwo9jct5vvs) ) and [Imperial HPC wiki](https://wiki.imperial.ac.uk/display/HPC/Running+your+first+job)
 
 - HPC check available Singularity modules
     - `module avail`
