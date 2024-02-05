@@ -9,7 +9,7 @@ This is an introduction to containers course at Imperial College London
 
 ## Prerequisites
 
-**NOTE: You are expecting to have some (not necessarily to have many or a lot) basic experience with bash commands, and Python or R programming. We will use basic bash command lines, simple coding in Python, R and C++ in the course.** 
+**NOTE: You are expecting to have some (not necessarily to have many or a lot) basic experience with bash commands, and Python or R programming. We will use basic bash command lines, simple coding in Python, R and C++ in the course. And you are also expecting to have access to [HPC](https://www.imperial.ac.uk/admin-services/ict/self-service/research-support/rcs/get-access/) ** 
 
 ## Description
 
