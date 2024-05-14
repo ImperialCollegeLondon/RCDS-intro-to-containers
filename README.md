@@ -296,12 +296,12 @@ First, setup the environment.
 ```
 docker network create backend
 
-docker volume create database
+docker volume create database #(optional)
 ```
 Second, start database engine with postgreSQL.
 
 ```
-docker run -d --name database --network backend -e POSTGRES_USER=hackmd -e POSTGRES_PASSWORD=hackmdpass -e POSTGRES_DB=hackmd -v database:/var/lib/postgresql/data postgres:9.6-alpine
+docker run -d --name database --network backend -e POSTGRES_USER=hackmd -e POSTGRES_PASSWORD=hackmdpass -e POSTGRES_DB=hackmd -v ${PWD}/database:/var/lib/postgresql/data postgres:9.6-alpine
 ```
 
 Finally, start HackMD.
