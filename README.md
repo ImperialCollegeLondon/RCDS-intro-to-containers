@@ -323,7 +323,11 @@ or
 
 \<your computer IP\>:3000 on your mobile devices / another computer which are connected to the same WiFi.
   
-Try: Stop the HackMD service and remove the containers after testing.
+Try: 
+
+- Stop the HackMD service and remove the containers after testing.
+- Backup the database directory.
+- Redo running HackMD service by mounting to the backup directory.
 
 
 
