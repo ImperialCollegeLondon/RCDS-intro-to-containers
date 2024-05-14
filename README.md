@@ -314,6 +314,9 @@ docker run -d --name app --network backend -e HMD_DB_URL=postgres://hackmd:hackm
   - `--name` is for specifying application name instead of being randomly asssigned by docker engine.
   - `-p` is for mapping the port from host to container instance <host port>:<container port>
   - `-e` is for setting environment variable(s)
+
+
+
 To test your local HackMD service, please visit 127.0.0.1:3000 on your computer 
 
 or 
