@@ -310,6 +310,10 @@ Finally, start HackMD.
 docker run -d --name app --network backend -e HMD_DB_URL=postgres://hackmd:hackmdpass@database:5432/hackmd -p 3000:3000 --restart always --link database hackmdio/hackmd:1.2.0
 ```
 
+- NOTE:
+  - `--name` is for specifying application name instead of being randomly asssigned by docker engine.
+  - `-p` is for mapping the port from host to container instance <host port>:<container port>
+  - `-e` is for setting environment variable(s)
 To test your local HackMD service, please visit 127.0.0.1:3000 on your computer 
 
 or 
