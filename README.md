@@ -133,10 +133,12 @@ On this course, we will be using Linux containers - all of the containers we wil
 
 - MacOS;
 - Microsoft Windows;
-- Linux; 
+- Linux;
+
 and
+
 - The Cloud
-We should certainly see people using the same containers on macOS and Windows today.
+
 
 ### Containers file systems
 
