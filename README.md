@@ -337,7 +337,7 @@ Try:
  
 ### Create own Docker images
 
-Where to get help: the [Docker Community Forums](https://forums.docker.com/), [the Docker Community Slack](https://dockr.ly/slack), or [Stack Overflow](https://stackoverflow.com/search?tab=newest&q=docker).
+Where to get help: the [Docker Community Forums](https://forums.docker.com/), [the Docker Community Slack](https://dockercommunity.slack.com/), or [Stack Overflow](https://stackoverflow.com/search?tab=newest&q=docker).
 
 To create your own docker images, you need to compose Dockerfiles.
 
