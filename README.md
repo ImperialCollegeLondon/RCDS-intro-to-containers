@@ -180,7 +180,7 @@ This is illustrated in the diagram below:
 
 3. One of the simplest Docker container images just allows you to create containers that print a welcome message.
 
-To create and run containers from named Docker images you use the docker run command. Open a shell window if you do not already have one open and try the following docker run invocation. Note that it does not matter what your current working directory is.
+To create and run containers (instances) from named container images you use the docker run command. Open a shell window if you do not already have one open and try the following docker run invocation. Note that it does not matter what your current working directory is.
 
 `docker run hello-world`
       
@@ -333,13 +333,13 @@ Try:
 
 
 
-## Part2: Generate Docker images
+## Part2: Generate container images
  
-### Create own Docker images
+### Create own container images
 
 Where to get help: the [Docker Community Forums](https://forums.docker.com/), [the Docker Community Slack](https://dockercommunity.slack.com/), or [Stack Overflow](https://stackoverflow.com/search?tab=newest&q=docker).
 
-To create your own docker images, you need to compose Dockerfiles.
+To create your own container images, you need to compose Dockerfiles.
 
 A Dockerfile contains a set of instructions with options to the instructions. There are many different instructions available, we only cover a few here. See [https://docs.docker.com/engine/reference/builder/](https://docs.docker.com/engine/reference/builder/) for a full description.
 
@@ -352,13 +352,13 @@ In our simple Dockerfile, we have the following six instructions:
 - `ENTRYPOINT`: An ENTRYPOINT allows you to configure a container that will run as an executable. The best use for ENTRYPOINT is to set the image’s main command, allowing that image to be run as though it was that command (and then use CMD as the default flags).
 - `WORKDIR`: The WORKDIR instruction sets the working directory for any RUN, CMD, ENTRYPOINT, COPY and ADD instructions that follow it in the Dockerfile. If the WORKDIR doesn’t exist, it will be created even if it’s not used in any subsequent Dockerfile instruction.
 
-To build a docker image:
+To build a container image:
 
 - Make sure in the same directory as where the Dockerfile is saved.
-- Run the following command line:  "docker build -t <docker image name[:tag]> ."   (no quotation marks, and do NOT miss the . at the end. :tag is optional, and it is "latest" by default)
+- Run the following command line:  "docker build -t <container image name[:tag]> ."   (no quotation marks, and do NOT miss the . at the end. :tag is optional, and it is "latest" by default)
 
 
-### Create own docker images - Example 1
+### Create own container images - Example 1
 
 Example 1: Compose one Dockerfile and one bash script
 
@@ -398,7 +398,7 @@ done
 ```
 NOTE: Build an image and test it with a mounted directory.
 
-### Create own docker images - Example 2
+### Create own container images - Example 2
 
 Example 2: Compose one Dockerfile with a simple Python code.
 
@@ -424,7 +424,7 @@ NOTE: Packages need to be installed using RUN.
 
 
 
-### Create own docker images - Example 3
+### Create own container images - Example 3
 
 
 Example 3: Compose one Dockerfile, and a Python code with a sample pandas dataset.
@@ -457,7 +457,7 @@ Try: build an image with a tag (not the default one "latest").
 
 
 
-### Create own docker images - Example 4
+### Create own container images - Example 4
 
 
 Example 4: Compose one Dockerfile with a R code. This example helps to understand installing R packages in R environment.
@@ -488,7 +488,7 @@ print("This is a R test in docker!")
 
 
 
-### Create own docker images - Example 5
+### Create own container images - Example 5
 
 Attached Files:
 File [CW_example_data.csv](https://raw.githubusercontent.com/jianlianggao/course-intro-to-containers/main/sample_data/CW_example_data.csv) (18.961 KB, right click and save link as CW_example_data.csv to your local drive)
@@ -541,7 +541,7 @@ print("This is a R test in docker!")
 Try:
 
 ```
-docker run --rm -v ${PWD}:/data <docker image name> /data/dataset/CW_example_data.csv /data/output/
+docker run --rm -v ${PWD}:/data <container image name> /data/dataset/CW_example_data.csv /data/output/
 ```
 
 **NOTE**:
@@ -554,7 +554,7 @@ When taking input parameters from docker run, need to use ENTRYPOINT
    To generate key pairs for connecting to your docker online instance, run the command `ssh-keygen -t ed25519 -P "" -f ~/.ssh/id_ed25519` in your terminal window (tested in a MacOS terminal window. should work in a Ubuntu terminal window. For a Windows command window, not the PowerShell window, `ssh-keygen` may exist in `C:\Windows\System32\OpenSSH\` and you may need to add the full path to `ssh-keygen.exe` in order to run the command)
 
 
-### Create own docker images - Example 6
+### Create own container images - Example 6
 
 Attached Files:
 File [CW_example_data.csv](https://raw.githubusercontent.com/jianlianggao/course-intro-to-containers/main/sample_data/CW_example_data.csv) (18.961 KB, right click and save link as CW_example_data.csv to your local drive)
@@ -614,7 +614,7 @@ print("This is a Python test in docker!")
 Try:
 
 ```
-docker run --rm -v ${PWD}:/data  <docker image name> /data/dataset/CW_example_data.csv /data/output/
+docker run --rm -v ${PWD}:/data  <container image name> /data/dataset/CW_example_data.csv /data/output/
 ```
 
 **NOTE**:
@@ -625,11 +625,11 @@ docker run --rm -v ${PWD}:/data  <docker image name> /data/dataset/CW_example_da
 **Tips**:
 1. You can try to build your container image(s) based-on an existing image on your computer, that will speed up your image(s) creating. (Thanks to Drake for this tip).
 
-### Create own docker images - Example 7
+### Create own container images - Example 7
 
-Try: Create a new docker image based on the existing image from example 6. In the new docker image, try to install a new Python package, for example: numpy. Then test the numpy package in Python script.
+Try: Create a new container image based on the existing image from example 6. In the new docker image, try to install a new Python package, for example: numpy. Then test the numpy package in Python script.
   
-### Create own docker images - Example 8
+### Create own container images - Example 8
 
 Example 8: Compose one Dockerfile with a shell script and a simple C++ code.
 
