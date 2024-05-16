@@ -434,7 +434,7 @@ Example 3: Compose one Dockerfile, and a Python code with a sample pandas datase
 
 - Dockerfile contains:
 ```
-FROM ubuntu
+FROM ubuntu:20.04
 
 RUN apt update && apt install -y python3 python3-pip && pip3 install pandas
 
@@ -442,6 +442,14 @@ ADD py_test.py ./
 
 CMD ["python3", "py_test.py"]
 ```
+**NOTE:** for using the latest Ubuntu, the first two lines in the Dockerfile should be:
+```
+FROM ubuntu
+RUN apt update && apt install -y python3 python3-pip && \
+        python3 -m pip config set global.break-system-packages true && \
+        pip3 install pandas
+```
+
 - py_test.py  contains:
 
 ```
