@@ -362,7 +362,7 @@ To build a container image:
 
 Example 1: Compose one Dockerfile and one bash script
 
-- Dockerfile contains:
+- **Dockerfile** contains:
 
 ```
 FROM ubuntu 
