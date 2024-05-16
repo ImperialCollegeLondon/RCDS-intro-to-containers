@@ -467,7 +467,7 @@ Example 4: Compose one Dockerfile with a R code. This example helps to understan
 
 - Dockerfile contains:
 ```
-FROM ubuntu:bionic
+FROM ubuntu:20.04
 
 ENV DEBIAN_FRONTEND=noninteractive 
 
