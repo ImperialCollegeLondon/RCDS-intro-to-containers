@@ -355,7 +355,10 @@ In our simple Dockerfile, we have the following six instructions:
 To build a container image:
 
 - Make sure in the same directory as where the Dockerfile is saved.
-- Run the following command line:  "docker build -t <container image name[:tag]> ."   (no quotation marks, and do NOT miss the . at the end. :tag is optional, and it is "latest" by default)
+- Run the following command line:  "docker build -t <container image name[:tag]> ."
+    -  **NOTE:**
+        - No quotation marks, and do NOT miss the . at the end. :tag is optional, and it is "latest" by default
+        - Naming rule for a container image name: start with an alphanumeric character, followed by a-z0-9, _ (underscore), . (period) or - (hyphen), or / (forward slash).
 
 
 ### Create own container images - Example 1
