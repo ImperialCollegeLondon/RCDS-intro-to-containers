@@ -851,7 +851,7 @@ singularity shell -C <image name>
 
 module load singular/3.1.1
 
-singularity run -B /rds/general/user/jgao/home/singularity_test:/data /rds/general/user/jgao/home/singularity_test/pypd_docker.simg /data/dataset/CW_example_data.csv /data/output${PBS_ARRAY_INDEX}/
+singularity run -B /rds/general/user/jgao/home/singularity_test:/data /rds/general/user/jgao/home/singularity_test/pypd_docker.simg /data/dataset/CW_example_data_${PBS_ARRAY_INDEX}.csv /data/output${PBS_ARRAY_INDEX}/
 ```
 
 To view the status of parallel jobs, please use the following command:
