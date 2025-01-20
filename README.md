@@ -5,7 +5,7 @@ This is an introduction to containers course at Imperial College London
 3 × 2 hour classes
 
 ## The Graduate School logo
-<img src="/images/grad-school-logo.png">
+<img src="/images/ecri.webp">
 
 ## Prerequisites
 
