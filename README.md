@@ -4,7 +4,7 @@ This is an introduction to containers course at Imperial College London
 
 3 × 2 hour classes
 
-## The Graduate School logo
+## The ECRI logo
 <img src="/images/ecri.webp">
 
 ## Prerequisites
@@ -889,4 +889,4 @@ You may have also heard about nextflow. It is not covered in this course. If you
 
 
 # Feedback form
-If you're taking this course through the Graduate School, please fill out [the feedback form](https://imperial.eu.qualtrics.com/jfe/form/SV_9HzWTxus5jKCyxg).
+If you're taking this course through the ECRI, please fill out [the feedback form](https://imperial.eu.qualtrics.com/jfe/form/SV_9HzWTxus5jKCyxg).
