@@ -319,7 +319,7 @@ docker run -d --name app --network backend -e HMD_DB_URL=postgres://hackmd:hackm
 
 
 
-To test your local HackMD service, please visit 127.0.0.1:3000 on your computer 
+To test your local HackMD service, please visit 127.0.0.1:3000 on your computer (*NOTE: if you want to change the port number for accessing the containerized service, you need to change the 3000 before the : to another port number as you wish*)
 
 or 
 
