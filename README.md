@@ -331,7 +331,9 @@ Try:
 - Backup the database directory.
 - Redo running HackMD service by mounting to the backup directory.
 
+*Another example of application*:
 
+Setup GitHub codespaces R environment. [R Application Example](https://github.com/jianlianggao/R_app_example)
 
 ## Part2: Generate container images
  
