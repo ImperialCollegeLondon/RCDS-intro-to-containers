@@ -392,7 +392,7 @@ NOTE: shebang line (#!/bin/bash) means running the file using Bash Shell.
 ```
 #!/bin/bash
 
-echo "This is a Docker test"
+echo "This is a Docker test. Happy Year of the Snake!"
 
 for i in {1..10}
 do
