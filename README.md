@@ -5,7 +5,8 @@ This is an introduction to containers course at Imperial College London
 3 × 2 hour classes
 
 ## The ECRI logo
-<img src="/images/ecri.webp">
+
+<img src="/images/ecri.webp" width="400" />
 
 ## Prerequisites
 
@@ -164,7 +165,7 @@ This is illustrated in the diagram below:
 - **Container**: this is an instance of a lightweight virtual machine created by Docker from a (container) image.
   - If you are interested in more technical details, Docker actually creates images by combining together multiple**layers**, although you can profitably use Docker without knowing much about layers. As a quick summary, each layer is a given set of files and folders. The combination of layers essentially involves a set-wise union of the files and folders in the layers, except that there is also a way for upper layers to hide files from lower layers (which has the appearance of deleting those files). Layers facilitate efficient storage space use, by allowing container images to share and reuse sets of files and folders, while still allowing individual container images to have their own specific files and folders.
  
-<img src="/images/images.png">
+<img src="/images/images.png" width="400" />
 
 - **Docker Hub**: the Docker Hub is a storage resource and associated website where a vast collection of preexisting container images are documented and stored, and are made available for your use.
 
