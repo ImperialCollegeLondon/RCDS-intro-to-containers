@@ -332,6 +332,16 @@ Try:
 - Backup the database directory.
 - Redo running HackMD service by mounting to the backup directory.
 
+*Windows GUI application*:
+
+Try:
+`docker run -it --rm -p 8006:8006 --device=/dev/kvm --device=/dev/net/tun --cap-add NET_ADMIN --stop-timeout 120 dockurr/windows`
+
+- `--cap-add NET_ADMIN` for creating bridge connection from host to the container.
+- `--device=/dev/kvm` for improving performance with KVM acceleration.
+- `--device=/dev/net/tun` for the container to use the TUN (network tunnel) device, which is often required for VPNs and other network-related tasks.
+- more details can be found at https://github.com/dockur/windows
+
 *Another example of application*:
 
 Setup GitHub codespaces R environment. [R Application Example](https://github.com/jianlianggao/R_app_example)
