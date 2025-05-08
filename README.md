@@ -401,6 +401,34 @@ echo "This is a print test. Happy Year of the Snake!"
 
 NOTE: shebang line (#!/bin/bash) means running the file using Bash Shell.
 
+- **Multi platform image build**
+
+Try:
+```
+docker buildx build --platform=linux/amd64,linux/arm64 -t shell_test_multi_platform .
+```
+If an error occurs like:
+ERROR: Multi-platform build is not supported for the docker driver.
+Switch to a different driver, or turn on the containerd image store, and try again.
+
+Then you need to run: 
+```
+docker buildx create --name=container --driver=docker-container --use --bootstrap
+```
+and rerun the previous command.
+
+If the following warning 
+```
+WARNING: No output specified with docker-container driver. Build result will only remain in the build cache. To push result image into registry use --push or to load image into docker use --load
+```
+is displayed. The docker driver has been setup correctly.
+Then you can try:
+```
+docker buildx build --platform=linux/amd64,linux/arm64 -t <docker_hub_username>/shell_test_multi_platform --push .
+```
+**NOTE:** Docker hub login is required.
+
+
 - Try to run a slightly more complicated shell script:
 ```
 #!/bin/bash
