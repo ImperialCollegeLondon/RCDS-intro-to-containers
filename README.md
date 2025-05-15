@@ -346,6 +346,8 @@ Try:
 
 Setup GitHub codespaces R environment. [R Application Example](https://github.com/jianlianggao/R_app_example)
 
+
+
 ## Part2: Generate container images
  
 ### Create own container images
@@ -760,6 +762,8 @@ docker run -it --rm -v $PWD/output_dir:/output_dir -e VAR1=15 -e VAR2=20 hello_c
 
 To clean up all build cache, run `docker builder prune -a` 
 
+
+
 ## Part3: Share containers and scale up
 
 ### Share Docker images
@@ -901,6 +905,7 @@ To view the status of parallel jobs, please use the following command:
 ```
 qstat -rt <job ID>[]
 ```
+
 
 ## Part4: Acknowledgement
 
