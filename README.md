@@ -842,7 +842,7 @@ Step 2. Push docker image to Docker Hub.
 
 Step 3. Your peer downloads your image from Docker Hub and tests run. 
 
-### Singularity
+### Singularity (Apptainer)
 
 HPC application:
 
