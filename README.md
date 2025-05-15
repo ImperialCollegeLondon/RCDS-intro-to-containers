@@ -81,6 +81,7 @@ Please try to install the appropriate software from the list below depending on 
   - Note that on Linux, you will either need to run Docker commands as root using `sudo` or [create a docker group to run without sudo](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
 
 3. Use online Docker lab environment [Lab Environment](https://www.docker.com/play-with-docker)
+4. Use Docker in Docker environment on GitHub by creating / launching codespaces at [Docker GitHub](https://github.com/jianlianggao/codespace_docker)
 
 ## Part1: Container and Docker commands page options
 
