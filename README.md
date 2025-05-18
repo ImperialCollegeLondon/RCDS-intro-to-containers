@@ -675,7 +675,8 @@ docker run --rm -v ${PWD}:/data  <container image name> /data/dataset/CW_example
 **NOTE**:
 
 1. Download the attached dataset to your local directory.
-2 .When taking input parameters from docker run, need to use ENTRYPOINT
+2. When taking input parameters from docker run, need to use ENTRYPOINT
+3. If you encounter an error like `ERROR: failed to solve: process "/bin/sh -c apt update && apt install -y python3 python3-pip && pip3 install pandas" did not complete successfully: exit code: 1` when building an image from this example, please add `--break-system-packages` to `pip3 install`, for this example, `pip3 install --break-system-packages pandas` and try again to build the image
 
 **Tips**:
 1. You can try to build your container image(s) based-on an existing image on your computer, that will speed up your image(s) creating. (Thanks to Drake for this tip).
@@ -871,6 +872,21 @@ singularity run -B /rds/general/user/jgao/home/singularity_test:/data /rds/gener
   - submit the job by running `qsub singularity_test1.pbs`
 
 To check the status of the submitted job, run the following command
+
+**Tips:**
+- Use `cd $PBS_O_WORKDIR` to avoid using absolute path to the .pbs script above. (*Thanks to Purwanto, Haditya Kukuh (known as Kukuh, PhD cadidate in Process System Engineering at Imperial)*)
+
+```
+#PBS -l walltime=00:20:00
+
+#PBS -l select=1:ncpus=2:mem=8gb
+
+module load singular/3.1.1
+
+cd $PBS_O_WORKDIR
+
+singularity run -B ./:/data pypd_docker.simg /data/dataset/CW_example_data.csv /data/
+```
 
 
 ```
