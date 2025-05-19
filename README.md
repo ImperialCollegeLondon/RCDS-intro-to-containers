@@ -677,6 +677,28 @@ docker run --rm -v ${PWD}:/data  <container image name> /data/dataset/CW_example
 1. Download the attached dataset to your local directory.
 2. When taking input parameters from docker run, need to use ENTRYPOINT
 3. If you encounter an error like `ERROR: failed to solve: process "/bin/sh -c apt update && apt install -y python3 python3-pip && pip3 install pandas" did not complete successfully: exit code: 1` when building an image from this example, please add `--break-system-packages` to `pip3 install`, for this example, `pip3 install --break-system-packages pandas` and try again to build the image
+4. If you want to have package(s) install in the Dockerfile with non-root user(s), you can create a non-root user in the Dockerfile. For example
+```
+FROM ubuntu
+
+WORKDIR /usr/local/src
+
+ADD requirements.txt ./
+
+RUN apt update && apt install -y python3 python3-pip python3-venv
+
+RUN useradd -m -s /bin/bash appuser && chown -R appuser:appuser /usr/local/src
+
+# switch to the user added
+USER appuser
+ 
+RUN python3 -m venv /home/appuser/venv && \
+    /home/appuser/venv/bin/pip install --no-cache-dir -r requirements.txt #--break-system-packages
+
+ADD py_test.py ./
+
+ENTRYPOINT ["/home/appuser/venv/bin/python3", "py_test.py"]
+```
 
 **Tips**:
 1. You can try to build your container image(s) based-on an existing image on your computer, that will speed up your image(s) creating. (Thanks to Drake for this tip).
