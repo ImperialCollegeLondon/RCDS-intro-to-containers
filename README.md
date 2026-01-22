@@ -47,41 +47,47 @@ Prerequisites: **Docker engine and Docker Hub**
 
 Please try to complete the following setup tasks ahead of the workshop. If you run into problems, please contact the workshop leader at the e-mail address on the home page. We will also provide installation and setup help at the workshop if required, but you will get more out of the training if you can complete them ahead of time.
 
-There are two steps to the setup (**3 and 4 are alternative ways to practice Docker environment with online platforms**):
-
-1. Create a Docker Hub account
+- Create a Docker Hub account
 
 You should setup a free account on the Docker Hub ahead of the workshop:
 
-- The [Docker Hub](http://hub.docker.com/). We will use the Docker Hub to download pre-built container images, and for you to upload and download container images that you create, as explained in the relevant lesson episodes.
+    - The [Docker Hub](http://hub.docker.com/). We will use the Docker Hub to download pre-built container images, and for you to upload and download container images that you create, as explained in the relevant lesson episodes.
 Please seek help at the start of the lesson if you have not been able to setup a Docker Hub account.
 
-2. Install the Docker software on your system
+- There are two options to setup Docker environment.
+  
+1. Online platforms
+  - (**recommended**): Use Docker in Docker environment on GitHub by creating / launching codespaces at [Docker GitHub](https://github.com/jianlianggao/codespace_docker)
+  - Use online Docker lab environment [Lab Environment](https://www.docker.com/play-with-docker)
+    
+2. Local computer setup
+
+  - Install the Docker software on your system
 
 Please try to install the appropriate software from the list below depending on the operating system that your laptop is running:
 
-- Microsoft Windows, either:
-  - Try this first, although it won’t work with Windows 10 Home Edition. Install the [Docker Desktop (Windows)](https://hub.docker.com/editions/community/docker-ce-desktop-windows), [YouTube video](https://youtu.be/shVTL3JsBr8)
+      - Microsoft Windows, either:
+          - Try this first, although it won’t work with Windows 10 Home Edition. Install the [Docker Desktop (Windows)](https://hub.docker.com/editions/community/docker-ce-desktop-windows), [YouTube video](https://youtu.be/shVTL3JsBr8)
 
   or failing that;
 
-  - Install the [Docker Toolbox (Windows)](https://docs.docker.com/toolbox/toolbox_install_windows/).
+          - Install the [Docker Toolbox (Windows)](https://docs.docker.com/toolbox/toolbox_install_windows/).
   
-- Apple macOS, either:
-  - Try this first, although it will not work with older versions of macOS. Install the [Docker Desktop (Mac)](https://hub.docker.com/editions/community/docker-ce-desktop-mac), [YouTube video](https://youtu.be/BJxGr2Xa6Zk)
+      - Apple macOS, either:
+      
+          - Try this first, although it will not work with older versions of macOS. Install the [Docker Desktop (Mac)](https://hub.docker.com/editions/community/docker-ce-desktop-mac), [YouTube video](https://youtu.be/BJxGr2Xa6Zk)
   or failing that:
 
-  - Install the [Docker Toolbox (Mac)](https://docs.docker.com/toolbox/toolbox_install_mac/).
+          - Install the [Docker Toolbox (Mac)](https://docs.docker.com/toolbox/toolbox_install_mac/).
   
-- Linux: there are too many varieties of Linux to give precise instructions here, but hopefully you can locate documentation for getting Docker installed on your Linux distribution. It may already be installed. If it is not already installed on your system, see:
-  - [Docker Engine on CentOS](https://docs.docker.com/install/linux/docker-ce/centos/)
-  - [Docker Engine on Debian](https://docs.docker.com/install/linux/docker-ce/debian/)
-  - [Docker Engine on Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/)
-  - [Docker Engine on Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
-  - Note that on Linux, you will either need to run Docker commands as root using `sudo` or [create a docker group to run without sudo](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
+      - Linux: there are too many varieties of Linux to give precise instructions here, but hopefully you can locate documentation for getting Docker installed on your Linux distribution. It may already be installed. If it is not already installed on your system, see:
+          - [Docker Engine on CentOS](https://docs.docker.com/install/linux/docker-ce/centos/)
+          - [Docker Engine on Debian](https://docs.docker.com/install/linux/docker-ce/debian/)
+          - [Docker Engine on Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/)
+          - [Docker Engine on Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+          - Note that on Linux, you will either need to run Docker commands as root using `sudo` or [create a docker group to run without sudo](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
 
-3. Use online Docker lab environment [Lab Environment](https://www.docker.com/play-with-docker)
-4. Use Docker in Docker environment on GitHub by creating / launching codespaces at [Docker GitHub](https://github.com/jianlianggao/codespace_docker)
+
 
 ## Part1: Container and Docker commands page options
 
