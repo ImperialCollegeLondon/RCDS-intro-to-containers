@@ -51,7 +51,7 @@ Please try to complete the following setup tasks ahead of the workshop. If you r
 
 You should setup a free account on the Docker Hub ahead of the workshop:
 
-    - The [Docker Hub](http://hub.docker.com/). We will use the Docker Hub to download pre-built container images, and for you to upload and download container images that you create, as explained in the relevant lesson episodes.
+  - The [Docker Hub](http://hub.docker.com/). We will use the Docker Hub to download pre-built container images, and for you to upload and download container images that you create, as explained in the relevant lesson episodes.
 Please seek help at the start of the lesson if you have not been able to setup a Docker Hub account.
 
 - There are two options to setup Docker environment.
@@ -66,9 +66,9 @@ Please seek help at the start of the lesson if you have not been able to setup a
 
 Please try to install the appropriate software from the list below depending on the operating system that your laptop is running:
 
-    - Microsoft Windows, either:
+  - Microsoft Windows, either:
           
-        - Try this first, although it won’t work with Windows 10 Home Edition. Install the [Docker Desktop (Windows)](https://hub.docker.com/editions/community/docker-ce-desktop-windows), [YouTube video](https://youtu.be/shVTL3JsBr8)
+    - Try this first, although it won’t work with Windows 10 Home Edition. Install the [Docker Desktop (Windows)](https://hub.docker.com/editions/community/docker-ce-desktop-windows), [YouTube video](https://youtu.be/shVTL3JsBr8)
 
   or failing that;
 
