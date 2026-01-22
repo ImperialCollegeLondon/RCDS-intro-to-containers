@@ -69,9 +69,7 @@ Please try to install the appropriate software from the list below depending on 
   - Microsoft Windows, either:
           
     - Try this first, although it won’t work with Windows 10 Home Edition. Install the [Docker Desktop (Windows)](https://hub.docker.com/editions/community/docker-ce-desktop-windows), [YouTube video](https://youtu.be/shVTL3JsBr8)
-
   or failing that;
-
     - Install the [Docker Toolbox (Windows)](https://docs.docker.com/toolbox/toolbox_install_windows/).
   
   - Apple macOS, either:
