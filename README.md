@@ -47,7 +47,7 @@ Prerequisites: **Docker engine and Docker Hub**
 
 Please try to complete the following setup tasks ahead of the workshop. If you run into problems, please contact the workshop leader at the e-mail address on the home page. We will also provide installation and setup help at the workshop if required, but you will get more out of the training if you can complete them ahead of time.
 
-There are four steps to the setup:
+There are two steps to the setup (**3 and 4 are alternative ways to practice Docker environment with online platforms**):
 
 1. Create a Docker Hub account
 
