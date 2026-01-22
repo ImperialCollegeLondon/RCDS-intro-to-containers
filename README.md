@@ -66,8 +66,9 @@ Please seek help at the start of the lesson if you have not been able to setup a
 
 Please try to install the appropriate software from the list below depending on the operating system that your laptop is running:
 
-      - Microsoft Windows, either:
-          - Try this first, although it won’t work with Windows 10 Home Edition. Install the [Docker Desktop (Windows)](https://hub.docker.com/editions/community/docker-ce-desktop-windows), [YouTube video](https://youtu.be/shVTL3JsBr8)
+    - Microsoft Windows, either:
+          
+        - Try this first, although it won’t work with Windows 10 Home Edition. Install the [Docker Desktop (Windows)](https://hub.docker.com/editions/community/docker-ce-desktop-windows), [YouTube video](https://youtu.be/shVTL3JsBr8)
 
   or failing that;
 
