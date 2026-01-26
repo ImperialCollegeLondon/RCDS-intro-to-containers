@@ -1,0 +1,13 @@
+{
+  "name": "Minimal Docker in Codespaces",
+  "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu-22.04",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "version": "latest",
+      "enableNonRootDocker": true,
+      "moby": true
+    }
+  },
+  "postCreateCommand": "docker --version",
+  "remoteUser": "vscode"
+}
