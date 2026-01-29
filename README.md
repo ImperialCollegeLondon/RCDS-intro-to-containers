@@ -929,9 +929,10 @@ NOTE: **singularity may not like the `WORKDIR` setting in the Dockefile. A full 
 singularity shell -C <image name>
 ```
 
-
-- Compose .pbs script for parallel jobs
-    - for example: singularity_par_test1.pbs
+- Try:
+  - Compose .pbs script for parallel jobs
+      - for example: singularity_par_test1.pbs
+      - Apply `cd $PBS_O_WORKDIR` in the following sample script
 
 ```
 #PBS -l walltime=00:20:00
