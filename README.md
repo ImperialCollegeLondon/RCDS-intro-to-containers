@@ -975,7 +975,9 @@ and do more research if needed. Or feel free to speak to me by email/Teams
   
 #### Nextflow
   
-You may have also heard about nextflow. It is not covered in this course. If you are keen to know about it, please feel free to start from [Jack Gisby's case study](https://github.com/ImperialCollegeLondon/ReCoDE_rnaseq_pipeline).
+You may have also heard about nextflow. It is not covered in this course. If you are keen to know about it, please feel free to start from 
+[Jesús' workshop](https://github.com/jurtasun/rcds_intro_nextflow/), then 
+[Jack Gisby's case study](https://github.com/ImperialCollegeLondon/ReCoDE_rnaseq_pipeline).
 
 #### Container Application for NVIDIA CUDA
 
