@@ -2,6 +2,8 @@
 
 This is an introduction to containers course at Imperial College London
 
+By Dr Liam (Jianliang) Gao (j.gao@imperial)
+
 3 × 2 hour classes
 
 ## The ECRI logo
@@ -979,9 +981,15 @@ You may have also heard about nextflow. It is not covered in this course. If you
 [Jesús' workshop](https://github.com/jurtasun/rcds_intro_nextflow/), then 
 [Jack Gisby's case study](https://github.com/ImperialCollegeLondon/ReCoDE_rnaseq_pipeline).
 
+#### Apptainer .def (Definition files)
+
+If you are interested in .def with Apptainer (AKA Singularity), you can start from [Apptainer Definition files](https://apptainer.org/docs/user/main/definition_files.html).
+
 #### Container Application for NVIDIA CUDA
 
 Please read this article [Enabling your AI and ML projects with GPU acceleration on Linux--By Dr Benjamin J  Scharpf](https://www.linkedin.com/posts/activity-7215832323945050112-x28H/?utm_source=share&utm_medium=member_desktop)
+
+or feel free to Contact Liam for further discussion.
 
 # Feedback form
 If you're taking this course through the ECRI, please fill out [the feedback form](https://imperial.eu.qualtrics.com/jfe/form/SV_ernNKvEke250siG).
