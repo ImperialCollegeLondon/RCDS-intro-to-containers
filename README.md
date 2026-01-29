@@ -984,4 +984,4 @@ You may have also heard about nextflow. It is not covered in this course. If you
 Please read this article [Enabling your AI and ML projects with GPU acceleration on Linux--By Dr Benjamin J  Scharpf](https://www.linkedin.com/posts/activity-7215832323945050112-x28H/?utm_source=share&utm_medium=member_desktop)
 
 # Feedback form
-If you're taking this course through the ECRI, please fill out [the feedback form](https://imperial.eu.qualtrics.com/jfe/form/SV_9HzWTxus5jKCyxg).
+If you're taking this course through the ECRI, please fill out [the feedback form](https://imperial.eu.qualtrics.com/jfe/form/SV_ernNKvEke250siG).
