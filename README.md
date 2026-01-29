@@ -974,7 +974,7 @@ This workshop does not include docker-compose. If you are interested in docker-c
 
 https://docs.docker.com/compose/gettingstarted/
 
-and do more research if needed. Or feel free to speak to me by email/Teams
+and do more research if needed. Or feel free to speak to Liam by email/Teams
   
 #### Nextflow
   
