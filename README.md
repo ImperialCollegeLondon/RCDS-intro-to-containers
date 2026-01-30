@@ -878,10 +878,6 @@ HPC application:
 
 (detailed instruction for using HPC can be found at [https://imperialcollegelondon.app.box.com/s/kwjxbd5bc87w296wo0m7fdwo9jct5vvs](https://imperialcollegelondon.app.box.com/s/kwjxbd5bc87w296wo0m7fdwo9jct5vvs) ) and [Imperial HPC wiki](https://wiki.imperial.ac.uk/display/HPC/Running+your+first+job)
 
-- HPC check available Singularity modules
-    - `module avail`
-- Load module
-    - for example: `module load singular/3.1.1`
 - Download docker images
     - for example: `singularity pull --name pypd_docker.simg docker://jianlianggao/pypd_docker:202106`
     - NOTE: be careful about tags
@@ -892,8 +888,6 @@ HPC application:
 #PBS -l walltime=00:20:00
 
 #PBS -l select=1:ncpus=2:mem=8gb
-
-module load singular/3.1.1
 
 singularity run -B /rds/general/user/jgao/home/singularity_test:/data /rds/general/user/jgao/home/singularity_test/pypd_docker.simg /data/dataset/CW_example_data.csv /data/
 ```
@@ -909,8 +903,6 @@ To check the status of the submitted job, run the following command
 #PBS -l walltime=00:20:00
 
 #PBS -l select=1:ncpus=2:mem=8gb
-
-module load singular/3.1.1
 
 cd $PBS_O_WORKDIR
 
@@ -940,8 +932,6 @@ singularity shell -C <image name>
 #PBS -l select=1:ncpus=2:mem=8gb
 
 #PBS -J 1-5
-
-module load singular/3.1.1
 
 singularity run -B /rds/general/user/jgao/home/singularity_test:/data /rds/general/user/jgao/home/singularity_test/pypd_docker.simg /data/dataset/CW_example_data_${PBS_ARRAY_INDEX}.csv /data/output${PBS_ARRAY_INDEX}/
 ```
