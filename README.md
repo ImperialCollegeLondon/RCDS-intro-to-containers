@@ -829,15 +829,15 @@ load saved docker image.
 
 command:  `docker load -i <image_name>`
 
-### Share docker images -- group activity
+### ~~Share docker images -- group activity~~
 
-Group activity: (in pairs)
+~~Group activity: (in pairs)~~
 
-Step 1. create your own docker image.
+~~Step 1. create your own docker image.~~
 
-Step 2. send file to your peer. (By fileexchange at Imperial College, or Google Drive, Dropbox, OneDrive etc).
+~~Step 2. send file to your peer. (By Google Drive, or Dropbox, OneDrive etc).~~
 
-Step 3. Your peer load received image into docker and test run. 
+~~Step 3. Your peer load received image into docker and test run.~~
 
 ### Docker hub
 
