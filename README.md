@@ -59,7 +59,7 @@ Please seek help at the start of the lesson if you have not been able to setup a
 - There are two options to setup Docker environment.
   
 1. Online platforms
-  - (**recommended**): Use Docker in Docker environment on GitHub by creating / launching codespaces at [Docker GitHub](https://github.com/jianlianggao/codespace_docker) or Creating/Launching codespaces from this repository. 
+  - (**recommended**): Use Docker in Docker environment on GitHub by creating / launching codespaces at [GitHub Codespaces](https://github.com/jianlianggao/codespace_docker) or Creating/Launching codespaces from this repository. 
   - Use online Docker lab environment [Lab Environment](https://www.docker.com/play-with-docker)
     
 2. Local computer setup
