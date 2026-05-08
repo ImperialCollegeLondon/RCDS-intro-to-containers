@@ -340,7 +340,7 @@ Try:
 - Backup the database directory.
 - Redo running HackMD service by mounting to the backup directory.
 
-*Windows GUI application*:
+*Windows GUI application* (**caution: loading Windows maybe extremely slow**):
 
 Try:
 `docker run -it --rm -p 8006:8006 --device=/dev/kvm --device=/dev/net/tun --cap-add NET_ADMIN --stop-timeout 120 dockurr/windows`
