@@ -848,16 +848,16 @@ Share docker images via Docker Hub.
 - Login Docker hub via command line
     - `docker login`
 - Create docker images with `<docker hub account name>/<docker image name>:[tag]` ([tag] is optional)
-    - for example: `docker build -t jianlianggao/r_docker2 .` or `docker build -t jianlianggao/r_docker2:20210423 .`
+    - for example: `docker build -t jianlianggao/pypd .` or `docker build -t jianlianggao/pypd:202605 .`
 - Or change docker image's name with docker tag <existing name> <new name:[tag]>
-    - for example: `docker tag r_docker2 jianlianggao/r_docker2:20210423`
+    - for example: `docker tag pypd6 jianlianggao/pypd:202605`
 - Push docker images onto Docker Hub
-    - for example: `docker push jianlianggao/r_docker2`
+    - for example: `docker push jianlianggao/pypd:202605`
     
 2. Download docker images from Docker Hub
 
 - Use command: `docker pull` 
-    - for example: `docker pull jianlianggao/r_docker2` 
+    - for example: `docker pull jianlianggao/pypd:202605` 
     
 NOTE: be careful about the tags.
 
@@ -879,7 +879,7 @@ HPC application:
 (detailed instruction for using HPC can be found at [https://imperialcollegelondon.app.box.com/s/kwjxbd5bc87w296wo0m7fdwo9jct5vvs](https://imperialcollegelondon.app.box.com/s/kwjxbd5bc87w296wo0m7fdwo9jct5vvs) ) and [Imperial HPC wiki](https://wiki.imperial.ac.uk/display/HPC/Running+your+first+job)
 
 - Download docker images
-    - for example: `singularity pull --name pypd_docker.simg docker://jianlianggao/pypd_docker:202106`
+    - for example: `singularity pull docker://jianlianggao/pypd:202605` or `apptainer pull docker://jianlianggao/pypd:202605`
     - NOTE: be careful about tags
 - Compose .pbs script for one single job
     - for example: singularity_test1.pbs
@@ -889,7 +889,7 @@ HPC application:
 
 #PBS -l select=1:ncpus=2:mem=8gb
 
-singularity run -B /rds/general/user/jgao/home/singularity_test:/data /rds/general/user/jgao/home/singularity_test/pypd_docker.simg /data/dataset/CW_example_data.csv /data/
+singularity run -B /rds/general/user/jgao/home/singularity_test:/data /rds/general/user/jgao/home/singularity_test/pypd_202605.sif /data/dataset/CW_example_data.csv /data/
 ```
 
   - submit the job by running `qsub singularity_test1.pbs`
@@ -906,7 +906,7 @@ To check the status of the submitted job, run the following command
 
 cd $PBS_O_WORKDIR
 
-singularity run -B ./:/data pypd_docker.simg /data/dataset/CW_example_data.csv /data/
+singularity run -B ./:/data pypd_202605.sif /data/dataset/CW_example_data.csv /data/
 ```
 
 
@@ -915,7 +915,9 @@ qstat <job ID>
 ```
 
 
-NOTE: **singularity may not like the `WORKDIR` setting in the Dockefile. A full path should then be added to the `ENTRYPOINT` setting and rebuild the container image**. if something goes wrong, to debug singularity images, run the following command
+NOTE: **singularity may not like the `WORKDIR` setting in the Dockefile. A full path should then be added to the `ENTRYPOINT` setting and rebuild the container image**. For example, `ENTRYPOINT ["/home/appuser/venv/bin/python3", "/usr/local/src/py_test.py"]`.
+
+If something goes wrong, to debug singularity images, run the following command to investigate your container image.
 
 ```
 singularity shell -C <image name>
@@ -933,7 +935,7 @@ singularity shell -C <image name>
 
 #PBS -J 1-5
 
-singularity run -B /rds/general/user/jgao/home/singularity_test:/data /rds/general/user/jgao/home/singularity_test/pypd_docker.simg /data/dataset/CW_example_data_${PBS_ARRAY_INDEX}.csv /data/output${PBS_ARRAY_INDEX}/
+singularity run -B /rds/general/user/jgao/home/singularity_test:/data /rds/general/user/jgao/home/singularity_test/pypd_202605.sif /data/dataset/CW_example_data_${PBS_ARRAY_INDEX}.csv /data/output${PBS_ARRAY_INDEX}/
 ```
 
 To view the status of parallel jobs, please use the following command:
