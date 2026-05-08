@@ -366,14 +366,15 @@ To create your own container images, you need to compose Dockerfiles.
 
 A Dockerfile contains a set of instructions with options to the instructions. There are many different instructions available, we only cover a few here. See [https://docs.docker.com/engine/reference/builder/](https://docs.docker.com/engine/reference/builder/) for a full description.
 
-In our simple Dockerfile, we have the following six instructions:
+In our simple Dockerfile, we have the following seven instructions:
 
 - `FROM`: Initialises the build and specifies the base image for subsequent instructions - all Dockerfiles start with this instruction.
 - `RUN`: Runs a command (using /bin/sh on Linux).
 - `ADD`: Copies new files, directories from <src> and adds them to the filesystem of the image at the path <dest>.
 - `CMD`: The default computational work that will be preformed when the container is executed using `docker run`. There can be only one CMD instruction in a Dockerfile.
 - `ENTRYPOINT`: An ENTRYPOINT allows you to configure a container that will run as an executable. The best use for ENTRYPOINT is to set the image’s main command, allowing that image to be run as though it was that command (and then use CMD as the default flags).
-- `WORKDIR`: The WORKDIR instruction sets the working directory for any RUN, CMD, ENTRYPOINT, COPY and ADD instructions that follow it in the Dockerfile. If the WORKDIR doesn’t exist, it will be created even if it’s not used in any subsequent Dockerfile instruction.
+- `WORKDIR`: The WORKDIR instruction sets the working directory for any RUN, CMD, ENTRYPOINT, COPY and ADD instructions that follow it in the Dockerfile. If the WORKDIR doesn’t exist, it will be created even if it’s not used in any subsequent Dockerfile instructions. Default WORKDIR is the `/`, root directory.
+- `ENV`: Set environment variables.
 
 To build a container image:
 
