@@ -406,7 +406,7 @@ CMD ["./print.sh"]
 ```
 #!/bin/bash
 
-echo "This is a print test. Happy Year of the Snake!"
+echo "This is a print test. Enjoy 2026!"
 
 ```
 
