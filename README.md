@@ -41,7 +41,7 @@ On completion of this course you will be able to:
 - Manage Docker Hub repository
 - Share Docker container images
 - Interpret common errors and use these to help debug a container
-- Use basic singularity commands to scale up containers on HPC 
+- Use basic singularity/apptainer commands to scale up containers on HPC 
 
 ## Pre-course activities:
 
