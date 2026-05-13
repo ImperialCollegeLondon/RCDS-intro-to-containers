@@ -168,7 +168,7 @@ This is illustrated in the diagram below:
 
 #### Terminology:
 
-- **Image**: this is the term that Docker uses to describe the template for the virtual hard disk contents (files and folders) like a prepared snapshot of an application’s file system. Docker uses it to launch containers. People often say **container image** to avoid confusion with other meanings of the word image, like VM images or regular pictures..
+- **Image**: this is the term that Docker uses to describe the template for the virtual hard disk contents (files and folders) like a prepared snapshot of an application’s file system. Docker uses it to launch containers. People often say **container image** to avoid confusion with other meanings of the word image, like VM images or regular pictures.
 
 - **Container**: this is an instance of a lightweight virtual machine created by Docker from a (container) image.
   - If you are interested in more technical details, Docker actually creates images by combining together multiple**layers**, although you can profitably use Docker without knowing much about layers. As a quick summary, each layer is a given set of files and folders. The combination of layers essentially involves a set-wise union of the files and folders in the layers, except that there is also a way for upper layers to hide files from lower layers (which has the appearance of deleting those files). Layers facilitate efficient storage space use, by allowing container images to share and reuse sets of files and folders, while still allowing individual container images to have their own specific files and folders.
