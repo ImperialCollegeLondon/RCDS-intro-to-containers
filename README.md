@@ -882,7 +882,18 @@ HPC application:
 
 - Download docker images
     - for example: `singularity pull docker://jianlianggao/pypd:202605` or `apptainer pull docker://jianlianggao/pypd:202605`
-    - NOTE: be careful about tags
+    - NOTE: 
+        + be careful about tags
+        + (**recommended**) use a .pbs for pulling a container image, for example,
+        ```
+        #PBS -l walltime=00:20:00
+  
+        #PBS -l select=1:ncpus=2:mem=8gb
+
+        cd $PBS_O_WORKDIR
+
+        apptainer pull docker://jianlianggao/pypd:202605
+        ```
 - Compose .pbs script for one single job
     - for example: singularity_test1.pbs
 
@@ -890,6 +901,8 @@ HPC application:
 #PBS -l walltime=00:20:00
 
 #PBS -l select=1:ncpus=2:mem=8gb
+
+cd $PBS_O_WORKDIR
 
 singularity run -B /rds/general/user/jgao/home/singularity_test:/data /rds/general/user/jgao/home/singularity_test/pypd_202605.sif /data/dataset/CW_example_data.csv /data/
 ```
