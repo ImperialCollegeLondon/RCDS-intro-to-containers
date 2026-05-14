@@ -685,7 +685,8 @@ docker run --rm -v ${PWD}:/data  <container image name> /data/dataset/CW_example
 1. Download the attached dataset to your local directory.
 2. When taking input parameters from docker run, need to use ENTRYPOINT
 3. If you encounter an error like `ERROR: failed to solve: process "/bin/sh -c apt update && apt install -y python3 python3-pip && pip3 install pandas" did not complete successfully: exit code: 1` when building an image from this example, please add `--break-system-packages` to `pip3 install`, for this example, `pip3 install --break-system-packages pandas` and try again to build the image
-4. If you want to have package(s) install in the Dockerfile with non-root user(s), you can create a non-root user in the Dockerfile. For example
+4. If you want to create a list of packages for installation, you can generate a separate file, often named as requirements.txt (see the example below).
+5. If you want to have package(s) install in the Dockerfile with non-root user(s), you can create a non-root user in the Dockerfile. For example
 ```
 FROM ubuntu
 
