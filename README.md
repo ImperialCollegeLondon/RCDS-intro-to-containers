@@ -444,7 +444,7 @@ docker buildx build --platform=linux/amd64,linux/arm64 -t <docker_hub_username>/
 ```
 #!/bin/bash
 
-echo "This is a Docker test. Happy Year of the Snake!"
+echo "This is a Docker test. Have a successful 2026!"
 
 for i in {1..10}
 do
