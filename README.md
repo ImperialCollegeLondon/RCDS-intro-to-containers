@@ -950,6 +950,8 @@ singularity shell -C <image name>
 
 #PBS -J 1-5
 
+cd $PBS_O_WORKDIR
+
 singularity run -B /rds/general/user/jgao/home/singularity_test:/data /rds/general/user/jgao/home/singularity_test/pypd_202605.sif /data/dataset/CW_example_data_${PBS_ARRAY_INDEX}.csv /data/output${PBS_ARRAY_INDEX}/
 ```
 
